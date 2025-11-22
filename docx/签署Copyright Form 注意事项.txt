@@ -1,0 +1,21 @@
+填写与签署 Copyright Form 注意事项：
+
+第一页
+Proposed Title of the Contribution: 填写论文的标题
+Author(s) Full Name(s): 填写所有作者英文名字（包含通信作者）
+Corresponding Author Name: 填写通信作者的英文名字（只能是一位）
+
+最后一页
+Signed for and on behalf of the Author: 通信作者手签英文名字
+Print Name: 通信作者英文名字键盘打字
+Date: 签署日期键盘打字
+Adress: 英文地址键盘打字
+Email: 电子信箱键盘打字
+
+
+以往被Springer 退稿的原因通常是：
+（1）填了超过一位的通信作者
+（2）填的通信作者名字和论文里标示*的作者名字不同
+（3）签字时签了中文、日文、...等非英文名字
+（4）签字的名字不是通信作者的名字
+

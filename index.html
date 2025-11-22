@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ICGEC-2025</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+        }
+
+        /* 左侧状态栏 */
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0 20px;
+            position: relative;
+            overflow-y: auto;
+        }
+        
+        /* 桌面端导航菜单默认显示 */
+        .nav-menu {
+            display: block;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 40px 0;
+        }
+        
+        /* 桌面端隐藏移动端导航按钮 */
+        .mobile-nav-toggle {
+            display: none;
+        }
+
+        .sidebar-header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-header p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(5px);
+        }
+
+        .nav-menu a.active {
+            background: rgba(255,255,255,0.2);
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .nav-menu a.active::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #ff6b6b;
+            border-radius: 50%;
+        }
+
+        .carousel-dot.active {
+            height: 8px;
+            background: #ff6b6b;
+            border-radius: 50%;
+        }
+
+        /* 右侧轮播图区域 */
+        .main-content {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+ 
+        /* 通用隐藏样式：用于在查看新闻时隐藏主页区域 */
+        .hidden { display: none !important; }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .carousel-item:nth-child(1) {
+            background-image: url('imgs/lbt1.jpg');
+        }
+
+        .carousel-item:nth-child(2) {
+            background-image: url('imgs/lbt2.jpg');
+        }
+
+        .carousel-item:nth-child(3) {
+            background-image: url('imgs/lbt3.jpg');
+        }
+
+        .conference-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.9); /* 更高透明度的黑色背景 */
+            padding: 36px 28px;
+            border-radius: 18px;
+            text-align: center;
+            color: #fff;
+            max-width: 1000px;
+            backdrop-filter: blur(6px);
+        }
+
+        .conference-info h2 {
+            font-size: 64px;
+            margin-bottom: 12px;
+            color: #fff;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .conference-info h3 {
+            font-size: 44px;
+            margin-bottom: 24px;
+            color: #f1f1f1;
+            font-weight: 700;
+        }
+
+        .conf-date {
+            font-size: 26px;
+            color: #f5f5f5;
+            margin: 8px 0;
+        }
+
+        .conference-dates {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .date-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .date-item h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .date-item p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 140px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* 轮播图底部校徽区域 */
+        .carousel-logos {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            z-index: 10;
+        }
+
+        /* 新闻内容列表面板（如截图样式） */
+        .news-panel {
+            /* 中文注释：固定定位到右侧区域，预留280px给左侧导航 */
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 280px;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(4px);
+            overflow-y: auto;
+            z-index: 20;
+            display: none;
+        }
+
+        .news-panel.active { display: block; }
+
+        .news-header {
+            padding: 30px 40px 10px 40px;
+            text-align: center;
+            font-size: 42px;
+            letter-spacing: 2px;
+            color: #222;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .news-list { padding: 10px 24px 60px 24px; }
+
+        .news-row {
+            background: rgba(255,255,255,0.75);
+            border-top: 2px solid rgba(0,0,0,0.06);
+            border-bottom: 2px solid rgba(0,0,0,0.06);
+            padding: 18px 16px;
+            margin: 10px 0;
+            color: #222;
+        }
+
+        .news-row .date {
+            color: #555;
+            font-weight: 700;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .news-row .title {
+            font-weight: 700;
+        }
+
+        .news-row .desc {
+            margin-top: 8px;
+            color: #333;
+        }
+
+        .news-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* ================================ */
+        /* 中文注释：PDF 面板（Call for Papers）*/
+        /* ================================ */
+        .pdf-panel {
+            /* 中文注释：固定定位到右侧区域，预留280px给左侧导航 */
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 280px;
+            background: #fff;
+            z-index: 21;
+            display: none;
+        }
+
+        .pdf-panel.active { display: block; }
+
+        .pdf-header {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            background: #f7f7fb;
+            font-weight: bold;
+        }
+
+        .pdf-close-btn {
+            background: #2a5298;
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: calc(100% - 64px);
+            border: none;
+        }
+        
+        /* 移动端PDF优化 */
+        @media (max-width: 768px) {
+            .pdf-frame {
+                height: calc(100vh - 100px);
+                min-height: 400px;
+            }
+            
+            /* 移动端PDF面板全屏显示 */
+            .pdf-panel {
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1000;
+            }
+            
+            .pdf-header {
+                padding: 15px 20px;
+                font-size: 24px;
+            }
+            
+            .pdf-close-btn {
+                top: 15px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+
+        /* ================================ */
+        /* 中文注释：Important Dates 面板样式 */
+        /* ================================ */
+        .dates-panel {
+            /* 固定在右侧主区域，预留左侧导航宽度 */
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(2px);
+            z-index: 22;
+            overflow-y: auto;
+            display: none;
+        }
+        .dates-panel.active { display: block; }
+
+        .dates-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .dates-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .dates-list {
+            max-width: 960px;
+            margin: 24px auto 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .dates-block { margin: 26px 0; }
+        .dates-pill {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .pill-green { background: #0e9a8c; }
+        .pill-brown { background: #6b4a3a; }
+
+        .dates-text {
+            margin-top: 14px;
+            font-size: 36px;
+            color: #1f1f1f;
+        }
+
+        /* ================================ */
+        /* 中文注释：Organizing Committee 面板样式 */
+        /* ================================ */
+        .committee-panel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            overflow-y: auto;
+            z-index: 23;
+            display: none;
+        }
+        .committee-panel.active { display: block; }
+        
+        .committee-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .committee-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .committee-wrap { max-width: 1100px; margin: 24px auto 80px auto; padding: 0 20px; }
+        .committee-section { margin: 28px 0; }
+        .committee-pill { display:inline-block; background:#0e9a8c; color:#fff; padding:12px 18px; border-radius:6px; font-size:28px; font-weight:700; }
+        .committee-pill.brown { background:#6b4a3a; }
+        .committee-list { margin-top: 16px; padding-left: 28px; }
+        .committee-list li { margin: 8px 0; font-size: 18px; color:#111; }
+
+        /* ================================ */
+        /* 中文注释：Paper Submission 面板样式 */
+        /* ================================ */
+        .submission-panel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            overflow-y: auto;
+            z-index: 24;
+            display: none;
+        }
+        .submission-panel.active { display: block; }
+        
+        .submission-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .submission-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .submission-wrap { max-width: 1100px; margin: 24px auto 80px auto; padding: 0 20px; }
+        .submission-section { margin: 28px 0; }
+        .submission-section h3 { 
+            color: #0e9a8c; 
+            font-size: 24px; 
+            margin-bottom: 15px; 
+            font-weight: 700;
+        }
+        .submission-section p { 
+            margin: 12px 0; 
+            font-size: 20px; 
+            color: #333; 
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        .submission-section ol { 
+            margin: 12px 0; 
+            padding-left: 20px; 
+        }
+        .submission-section li { 
+            margin: 8px 0; 
+            font-size: 16px; 
+            color: #333; 
+            line-height: 1.6;
+        }
+
+        /* ================================ */
+        /* 中文注释：Presentation Guidelines 面板样式 */
+        /* ================================ */
+        .presentation-panel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            overflow-y: auto;
+            z-index: 25;
+            display: none;
+        }
+        .presentation-panel.active { display: block; }
+        
+        .presentation-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .presentation-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .presentation-wrap { 
+            max-width: 1100px; 
+            margin: 24px auto 80px auto; 
+            padding: 0 20px; 
+        }
+        .presentation-section { 
+            margin: 28px 0; 
+            text-align: center;
+        }
+        .presentation-section h3 { 
+            color: #0e9a8c; 
+            font-size: 32px; 
+            margin-bottom: 20px; 
+            font-weight: 700;
+        }
+        .presentation-section p { 
+            margin: 15px 0; 
+            font-size: 24px; 
+            color: #333; 
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        .presentation-section ul { 
+            margin: 20px 0; 
+            padding-left: 0; 
+            list-style: none;
+        }
+        .presentation-section li { 
+            margin: 12px 0; 
+            font-size: 20px; 
+            color: #333; 
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        .presentation-section li::before {
+            content: "•";
+            color: #0e9a8c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* ================================ */
+        /* 中文注释：Invited Sessions 面板样式 */
+        /* ================================ */
+        .invited-sessions-panel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            overflow-y: auto;
+            z-index: 26;
+            display: none;
+        }
+        .invited-sessions-panel.active { display: block; }
+        
+        .invited-sessions-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .invited-sessions-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            font-weight: bold;
+        }
+        .invited-sessions-wrap { 
+            max-width: 1100px; 
+            margin: 24px auto 80px auto; 
+            padding: 0 40px; 
+        }
+        .invited-sessions-content { 
+            margin: 28px 0; 
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .invited-sessions-content p { 
+            margin: 15px 0; 
+        }
+        .invited-sessions-content a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+        .invited-sessions-content a:hover {
+            text-decoration: underline;
+        }
+        .invited-sessions-signature {
+            margin-top: 30px;
+        }
+        .invited-sessions-signature p {
+            margin: 8px 0;
+        }
+        .invited-sessions-example {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        .invited-sessions-example-item {
+            display: flex;
+            margin: 15px 0;
+        }
+        .invited-sessions-example-code {
+            font-weight: bold;
+            margin-right: 20px;
+            min-width: 150px;
+        }
+        .invited-sessions-example-title {
+            flex: 1;
+        }
+        .invited-sessions-example-title a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+        .invited-sessions-example-title a:hover {
+            text-decoration: underline;
+        }
+        .invited-sessions-example-organizers {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* ================================ */
+        /* 中文注释：Conference Registration 面板样式 */
+        /* ================================ */
+        .registration-panel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            overflow-y: auto;
+            z-index: 27;
+            display: none;
+        }
+        .registration-panel.active { display: block; }
+        
+        .registration-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .registration-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            font-weight: bold;
+        }
+        .registration-wrap { 
+            max-width: 1100px; 
+            margin: 24px auto 80px auto; 
+            padding: 0 40px; 
+        }
+        .registration-content { 
+            margin: 28px 0; 
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .registration-content p { 
+            margin: 15px 0; 
+        }
+        .registration-content a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+        .registration-content a:hover {
+            text-decoration: underline;
+        }
+        .registration-signature {
+            margin-top: 30px;
+        }
+        .registration-signature p {
+            margin: 8px 0;
+        }
+        .registration-files {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+        .registration-files ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .registration-files li {
+            margin: 12px 0;
+            font-size: 18px;
+        }
+        .registration-files a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+        .registration-files a:hover {
+            text-decoration: underline;
+        }
+        /* ================================ */
+        /* 中文注释：Text Viewer 面板样式（用于显示txt文件） */
+        /* ================================ */
+        .text-viewer-panel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            overflow-y: auto;
+            z-index: 28;
+            display: none;
+        }
+        .text-viewer-panel.active { display: block; }
+        
+        .text-viewer-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .text-viewer-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            font-weight: bold;
+        }
+        .text-viewer-wrap { 
+            max-width: 1100px; 
+            margin: 24px auto 80px auto; 
+            padding: 0 40px; 
+        }
+        .text-viewer-content { 
+            margin: 28px 0; 
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            white-space: pre-line;
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+        }
+
+        .carousel-logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .carousel-logo-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.283);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .carousel-logo-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .carousel-logo-img img {
+            width: 225px;
+            height: 225px;
+            object-fit: contain;
+        }
+
+        .carousel-logo-text {
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                min-height: 60px;
+            }
+            
+            /* 移动端轮播图优化 */
+            .main-content {
+                height: calc(100vh - 150px);
+                min-height: 350px;
+            }
+            
+            .carousel {
+                height: 100%;
+            }
+            
+            /* 移动端导航按钮样式 */
+            .mobile-nav-toggle {
+                display: block;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                background: rgba(0, 0, 0, 0.8);
+                border: none;
+                padding: 10px;
+                border-radius: 8px;
+                cursor: pointer;
+                z-index: 1002;
+            }
+            
+            .hamburger {
+                display: block;
+                width: 20px;
+                height: 3px;
+                background: white;
+                margin: 3px 0;
+                transition: 0.3s;
+            }
+            
+            /* 移动端导航菜单默认隐藏 */
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 1001;
+                padding: 80px 20px 20px 20px;
+                overflow-y: auto;
+                backdrop-filter: blur(10px);
+            }
+            
+            .nav-menu.active {
+                display: block;
+                animation: slideIn 0.3s ease-out;
+            }
+            
+            @keyframes slideIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-100%);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .nav-menu a {
+                display: block;
+                padding: 15px 20px;
+                font-size: 18px;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-menu a:hover,
+            .nav-menu a.active {
+                background: rgba(255, 255, 255, 0.15);
+                transform: translateX(10px);
+            }
+            
+            /* 移动端关闭按钮 */
+            .mobile-close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                color: white;
+                font-size: 24px;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                cursor: pointer;
+                z-index: 1003;
+            }
+            
+            /* 手机端专用文字显示设计 */
+            .conference-info {
+                position: fixed !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                width: 90vw !important;
+                max-width: 400px !important;
+                text-align: center !important;
+                z-index: 1000 !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                backdrop-filter: none !important;
+                border-radius: 0 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            /* 手机端主标题样式 */
+            .conference-info h2 {
+                font-size: clamp(24px, 6vw, 32px) !important;
+                margin-bottom: 20px !important;
+                color: #ffffff !important;
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.8) !important;
+                font-weight: 800 !important;
+                letter-spacing: 2px !important;
+                display: block !important;
+                visibility: visible !important;
+                font-family: Arial, sans-serif !important;
+                line-height: 1.2 !important;
+            }
+            
+            /* 手机端会议标题样式 */
+            .conference-info h3 {
+                font-size: clamp(16px, 4vw, 22px) !important;
+                margin-bottom: 25px !important;
+                color: #ffffff !important;
+                text-shadow: 2px 2px 6px rgba(0,0,0,0.8) !important;
+                font-weight: 400 !important;
+                line-height: 1.4 !important;
+                display: block !important;
+                visibility: visible !important;
+                font-family: Arial, sans-serif !important;
+            }
+            
+            /* 手机端日期样式 */
+            .conf-date {
+                font-size: clamp(14px, 3.5vw, 18px) !important;
+                margin: 8px 0 !important;
+                color: #ffffff !important;
+                text-shadow: 2px 2px 6px rgba(0,0,0,0.8) !important;
+                font-weight: 400 !important;
+                line-height: 1.3 !important;
+                display: block !important;
+                visibility: visible !important;
+                font-family: Arial, sans-serif !important;
+            }
+            
+            /* 小屏幕手机优化 */
+            @media (max-width: 375px) {
+                .conference-info h2 {
+                    font-size: clamp(20px, 5.5vw, 28px) !important;
+                    margin-bottom: 15px !important;
+                }
+                
+                .conference-info h3 {
+                    font-size: clamp(14px, 3.5vw, 20px) !important;
+                    margin-bottom: 20px !important;
+                }
+                
+                .conf-date {
+                    font-size: clamp(12px, 3vw, 16px) !important;
+                    margin: 6px 0 !important;
+                }
+            }
+            
+            /* 超小屏幕手机优化 */
+            @media (max-width: 320px) {
+                .conference-info h2 {
+                    font-size: clamp(18px, 5vw, 24px) !important;
+                    margin-bottom: 12px !important;
+                }
+                
+                .conference-info h3 {
+                    font-size: clamp(12px, 3vw, 18px) !important;
+                    margin-bottom: 18px !important;
+                }
+                
+                .conf-date {
+                    font-size: clamp(11px, 2.5vw, 14px) !important;
+                    margin: 5px 0 !important;
+                }
+            }
+            
+            .conference-dates {
+                flex-direction: column !important;
+                gap: 15px !important;
+                display: flex !important;
+                visibility: visible !important;
+            }
+            
+            .carousel-logos {
+                position: absolute !important;
+                bottom: 20px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 20px !important;
+                z-index: 100 !important;
+                background: rgba(255, 255, 255, 0.95) !important;
+                padding: 15px 25px !important;
+                border-radius: 30px !important;
+                backdrop-filter: blur(15px) !important;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+                border: 2px solid rgba(255, 255, 255, 0.8) !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .carousel-logo-img {
+                width: 45px !important;
+                height: 45px !important;
+                border-radius: 50% !important;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+                transition: all 0.3s ease !important;
+                border: 2px solid rgba(255, 255, 255, 0.9) !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .carousel-logo-img:hover {
+                transform: scale(1.05) !important;
+                box-shadow: 0 6px 18px rgba(0,0,0,0.4) !important;
+            }
+            
+            .carousel-logo-img img {
+                width: 30px !important;
+                height: 30px !important;
+                object-fit: contain !important;
+                filter: brightness(1.1) contrast(1.1) !important;
+                display: block !important;
+                visibility: visible !important;
+            }
+            
+            .carousel-controls {
+                display: none;
+            }
+            
+
+            
+            /* 移动端隐藏轮播图，使用静态图片 */
+            .carousel {
+                display: none;
+            }
+            
+            /* 移动端静态背景图片 */
+            .main-content::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('imgs/sj1.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                z-index: 1;
+                filter: brightness(0.9) contrast(1.1);
+            }
+            
+            /* 确保移动端main-content有正确的定位 */
+            .main-content {
+                position: relative !important;
+                overflow: visible !important;
+            }
+            
+            /* 确保所有内容在背景图片之上 */
+            .conference-info {
+                position: relative;
+                z-index: 5;
+            }
+            
+            .carousel-logos {
+                position: relative;
+                z-index: 10;
+            }
+            
+            .carousel-controls {
+                position: relative;
+                z-index: 10;
+            }
+            
+                    /* 移动端Close按钮优化 */
+        .news-close-btn,
+        .dates-close-btn,
+        .committee-close-btn,
+        .submission-close-btn,
+        .presentation-close-btn,
+        .invited-sessions-close-btn,
+        .registration-close-btn,
+        .text-viewer-close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1002;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+        
+        /* 手机端PDF面板样式 */
+
+
+        /* 移动端PDF图片显示样式 */
+        .mobile-pdf-image-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #f5f5f5;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-image-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .pdf-image-header h2 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .pdf-image-close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .pdf-image-close-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .pdf-image-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .pdf-image-viewer {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            background: white;
+        }
+
+        .pdf-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+        }
+
+
+        
+
+            
+            /* 移动端面板内容优化 */
+            .news-header,
+            .dates-header,
+            .committee-header {
+                font-size: 28px;
+                padding: 20px;
+            }
+            
+            .news-row .title,
+            .dates-text,
+            .committee-pill {
+                font-size: 16px;
+            }
+            
+            .news-row .desc,
+            .committee-list li {
+                font-size: 14px;
+            }
+            
+                    /* 中文注释：在小屏时侧边栏在上方占满宽度，因此所有面板从左侧0开始覆盖下方主区域 */
+        .news-panel,
+        .pdf-panel,
+        .dates-panel,
+        .committee-panel,
+        .submission-panel,
+        .presentation-panel,
+        .invited-sessions-panel,
+        .registration-panel,
+        .text-viewer-panel {
+            left: 0;
+        }
+        
+        /* 移动端面板优化 */
+        .news-panel,
+        .pdf-panel,
+        .dates-panel,
+        .committee-panel,
+        .submission-panel,
+        .presentation-panel,
+        .invited-sessions-panel,
+        .registration-panel,
+        .text-viewer-panel {
+            z-index: 1000;
+        }
+        
+        /* 移动端PDF特殊处理 */
+        .pdf-panel {
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        /* PDF备用方案样式 */
+        .pdf-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 100px);
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .pdf-error-message {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pdf-error-message p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .pdf-download-btn {
+            display: inline-block;
+            background: #2a5298;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .pdf-download-btn:hover {
+            background: #1e3f7a;
+        }
+        
+        /* 移动端通用优化 */
+        .news-panel .news-header,
+        .dates-panel .dates-header,
+        .committee-panel .committee-header,
+        .submission-panel .submission-header,
+        .presentation-panel .presentation-header,
+        .invited-sessions-panel .invited-sessions-header,
+        .registration-panel .registration-header,
+        .text-viewer-panel .text-viewer-header {
+            font-size: 32px;
+            padding: 20px;
+        }
+        
+        .news-panel .news-list,
+        .dates-panel .dates-list,
+        .committee-panel .committee-wrap,
+        .submission-panel .submission-wrap,
+        .presentation-panel .presentation-wrap,
+        .invited-sessions-panel .invited-sessions-wrap,
+        .registration-panel .registration-wrap,
+        .text-viewer-panel .text-viewer-wrap {
+            padding: 0 20px 20px 20px;
+        }
+        
+        .news-row,
+        .dates-block,
+        .committee-section,
+        .submission-section,
+        .presentation-section,
+        .invited-sessions-content,
+        .registration-content,
+        .text-viewer-content {
+            margin: 15px 0;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧状态栏 -->
+        <div class="sidebar">
+            <!-- 移动端导航按钮 -->
+            <button class="mobile-nav-toggle" id="mobileNavToggle">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            
+            <ul class="nav-menu">
+                <li><a href="#" class="active">ICGEC-2025</a></li>
+                <li><a href="#">News</a></li>
+<!--                <li><a href="#">Galleries</a></li>-->
+                <li><a href="#">Organizing Committee</a></li>
+<!--                <li><a href="#">Keynote Speech</a></li>-->
+                <li><a href="#">Call for Papers</a></li>
+                <li><a href="#">Important Dates</a></li>
+                <li><a href="#">Invited Sessions</a></li>
+                <li><a href="#">Paper Submission</a></li>
+<!--                <li><a href="#">Accepted Papers</a></li>-->
+                <li><a href="#">Presentation Guidelines</a></li>
+                <li><a href="#">Conference Registration</a></li>
+<!--                <li><a href="#">Recommended Hotel</a></li>-->
+<!--                <li><a href="#">Visa Application</a></li>-->
+<!--                <li><a href="#">Access to Venue</a></li>-->
+<!--                <li><a href="#">City Information</a></li>-->
+<!--                <li><a href="#">Contact Us</a></li>-->
+            </ul>
+        </div>
+
+        <!-- 右侧轮播图区域 -->
+        <div class="main-content">
+            <div class="carousel">
+                <div class="carousel-item active">
+                    <div class="conference-info">
+                        <h2>ICGEC-2025</h2>
+                        <h3>The 17th International Conference On Genetic and Evolutionary Computing</h3>
+                        <div class="conf-date">December 18-19, 2025,  Fuzhou,  China</div>
+                        <div class="conf-date">December 22-23, 2025, Nanyang,  China</div>
+                    </div>
+                </div>
+                
+                <div class="carousel-item">
+                    <div class="conference-info">
+                        <h2>ICGEC-2025</h2>
+                        <h3>The 17th International Conference On Genetic and Evolutionary Computing</h3>
+                        <div class="conf-date">December 18-19, 2025,  Fuzhou,  China</div>
+                        <div class="conf-date">December 22-23, 2025, Nanyang,  China</div>
+                    </div>
+                </div>
+                
+                <div class="carousel-item">
+                    <div class="conference-info">
+                        <h2>ICGEC-2025</h2>
+                        <h3>The 17th International Conference On Genetic and Evolutionary Computing</h3>
+                        <div class="conf-date">December 18-19, 2025,  Fuzhou,  China</div>
+                        <div class="conf-date">December 22-23, 2025, Nanyang,  China</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <div class="carousel-dot active" onclick="showSlide(0)"></div>
+                <div class="carousel-dot" onclick="showSlide(1)"></div>
+                <div class="carousel-dot" onclick="showSlide(2)"></div>
+            </div>
+            
+                         <!-- 轮播图底部校徽 -->
+             <div class="carousel-logos">
+                 <div class="carousel-logo-item">
+                     <div class="carousel-logo-img">
+                         <img src="imgs/ygxy.png" alt="YANGO UNIVERSITY">
+                     </div>
+                     
+                 </div>
+                 
+                 <div class="carousel-logo-item">
+                     <div class="carousel-logo-img">
+                         <img src="imgs/nylg.png" alt="NANYANG INSTITUTE">
+                     </div>
+                     
+                 </div>
+                 
+                 <div class="carousel-logo-item">
+                     <div class="carousel-logo-img">
+                         <img src="imgs/springer.png" alt="Springer">
+                     </div>
+                     
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!-- 新闻内容面板 -->
+     <div class="news-panel" id="newsPanel">
+         <button class="news-close-btn" onclick="hideNewsPanel()">Close</button>
+         <div class="news-header">NEWS</div>
+         <div class="news-list">
+             <div class="news-row">
+                 <span class="date">[ 2025-06-05 ]</span>
+                 <span class="title">Website Updated</span>
+                 <div class="desc">The website has been launched.</div>
+             </div>
+             <div class="news-row">
+                 <span class="date">[ 2025-07-09 ]</span>
+                 <span class="title">Import Date Updated</span>
+                 <div class="desc">Import Date of conference updated.</div>
+             </div>
+         </div>
+     </div>
+     
+     <!-- ================================ -->
+     <!-- 中文注释：Call for Papers 的 PDF 展示面板 -->
+     <!-- 点击左侧“Call for Papers”时，右侧显示此面板内嵌的 PDF 文件 -->
+     <!-- ================================ -->
+     <div class="pdf-panel" id="pdfPanel">
+         <div class="pdf-header">
+             <div>Call for Papers (PDF)</div>
+             <div>
+                 <button class="pdf-close-btn" onclick="hidePdfPanel()">Close</button>
+             </div>
+         </div>
+         <iframe class="pdf-frame" src="pdf/CallforPaper.pdf" title="Call for Papers PDF" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+     </div>
+
+    <!-- ================================ -->
+    <!-- 中文注释：Important Dates 面板（展示关键日期） -->
+    <!-- ================================ -->
+    <div class="dates-panel" id="datesPanel">
+        <button class="dates-close-btn" onclick="hideDatesPanel()">Close</button>
+        <div class="dates-header">IMPORTANCE DATES</div>
+        <div class="dates-list">
+            <div class="dates-block">
+                <span class="dates-pill pill-green">Paper submission deadline</span>
+                <div class="dates-text">Oct 1st, 2025 (Final Extension)</div>
+            </div>
+
+            <div class="dates-block">
+                <span class="dates-pill pill-brown">Invited session application deadline</span>
+                <div class="dates-text">Sep 30, 2025 (Final Extension)</div>
+            </div>
+
+            <div class="dates-block">
+                <span class="dates-pill pill-green">Acceptance notification</span>
+                <div class="dates-text">Nov 20th, 2025</div>
+            </div>
+
+            <div class="dates-block">
+                <span class="dates-pill pill-brown">Camera-ready papers due</span>
+                <div class="dates-text">Nov 25th, 2025</div>
+            </div>
+        </div>
+    </div>
+
+            <!-- ================================ -->
+        <!-- 中文注释：Organizing Committee 面板（右侧展示组委会信息） -->
+        <!-- ================================ -->
+        <div class="committee-panel" id="committeePanel">
+            <button class="committee-close-btn" onclick="hideCommitteePanel()">Close</button>
+            <div class="committee-header">ORGANIZING COMMITTEE</div>
+            <div class="committee-wrap">
+                <div class="committee-section">
+                    <span class="committee-pill">Honorary Chairs</span>
+                    <ul class="committee-list">
+                        <li>Jeng-Shyang Pan, Nanjing University of Information Science & Technology, China</li>
+                    </ul>
+                </div>
+
+                <div class="committee-section">
+                    <span class="committee-pill">Advisory Committee Chairs</span>
+                    <ul class="committee-list">
+                        <li>Shen Yin, Norwegian University of Science and Technology, Norway</li>
+                        <li>Giancarlo Fortino, University of Calabria, Italy</li>
+                    </ul>
+                </div>
+
+                <div class="committee-section">
+                    <span class="committee-pill">Conference Chairs</span>
+                    <ul class="committee-list">
+                        <li>Xinhua Jiang, Yango University, China</li>
+                        <li>Haoshan Hao, Nanyang Institute of Technology, China</li>
+                        <li>Jerry Chun-Wei Lin, Silesian University of Technology, Poland</li>
+                    </ul>
+                </div>
+
+                <div class="committee-section">
+                    <span class="committee-pill">Program Committee Chairs</span>
+                    <ul class="committee-list">
+                        <li>Xinyu Da, Yango University, China</li>
+                        <li>Liming Liu, Nanyang Institute of Technology, China</li>
+                        <li>Xingsi Xue, Fujian University of Technology, China</li>
+                        <li>Thi Thi Zin, University of Miyazaki, Japan</li>
+                    </ul>
+                </div>
+
+                <div class="committee-section">
+                    <span class="committee-pill">Publication Chairs</span>
+                    <ul class="committee-list">
+                        <li>Lingda Chi, Yango University, China</li>
+                        <li>Pei Hu, Nanyang Institute of Technology, China</li>
+                        <li>Shu-Chuan Chu, Nanjing University of Information Science and Technology, China</li>
+                    </ul>
+                </div>
+
+                <div class="committee-section">
+                    <span class="committee-pill">Invited Session Chairs</span>
+                    <ul class="committee-list">
+                        <li>Tien-Wen Sung, Fujian University of Technology, China</li>
+                        <li>Pei Hu, Nanyang Institute of Technology, China</li>
+                        <li>Zheng Zhang, Nanyang Institute of Technology, China</li>
+                    </ul>
+                </div>
+
+                <div class="committee-section">
+                    <span class="committee-pill">Local Organizing Chairs</span>
+                    <ul class="committee-list">
+                        <li>Chengli Luo, Yango University, China</li>
+                        <li>Yanling Shao, Nanyang Institute of Technology, China</li>
+                    </ul>
+                </div>
+
+                <div class="committee-section">
+                    <span class="committee-pill">Finance Chairs</span>
+                    <ul class="committee-list">
+                        <li>Chen Zhong, Yango University, China</li>
+                    </ul>
+                </div>
+
+                <div class="committee-section">
+                    <span class="committee-pill">Program Committee Member</span>
+                    <ul class="committee-list">
+                        <li>Dr Wasim Ullah Khan, City University of Hong Kong, China</li>
+                        <li>Dr. MD SHAMIM HOSSAIN, ISLAMIC UNIVERSITY, BANGLADESH</li>
+                        <li>Dr. JAMAL FIRMAN BANZI, SOKOINE UNIVERSITY OF AGRICULTURE, Tanzania</li>
+                        <li>Dr. Aamir Asalan, Fatima Jinnah Women University Rawalpindi, Pakistan</li>
+                        <li>Prof. Dr Saad Aslam, Sunway University, Malaysia</li>
+                        <li>Bay Vo, HUTECH University, Vietnam</li>
+                        <li>Francesco Piccialli, University of Naples Federico II, Italy</li>
+                        <li>Vicente Garcia Diaz, University of Oviedo, Spain</li>
+                        <li>Jaroslav Frnda, University of Zilina, Slovakia</li>
+                        <li>Stefania Tomasiello, University of Salerno, Italy</li>
+                        <li>Liming Liu, Nanyang Institute of Technology, China</li>
+                        <li>Yanling Shao, Nanyang Institute of Technology, China</li>
+                        <li>Lu Yin, University of Surrey, UK</li>
+                        <li>Wenyong Dong, Wuhan University, China</li>
+                        <li>Lin Xu, The University of Adelaide, Australia</li>
+                        <li>Hao Liao, Shenzhen University, China</li>
+                        <li>Wenzhao Zheng, University of California, Berkeley, USA</li>
+                        <li>Dajun Huang, Sungkunkwan University, South Korea</li>
+                        <li>Xiaopeng Wang, VSB-TU of Ostrava, Czech Republic</li>
+                        <li>Himanshu Dhurmas, Chandigarh Engineering College, India</li>
+                        <li>Hai Zhu, Henan University of Engineering, China</li>
+                        <li>Wenxi Liu, Fuzhou University, China</li>
+                        <li>Heming Jia, Sanming University, China</li>
+                    </ul>
+                </div>
+
+                <div class="committee-section">
+                    <span class="committee-pill">Keynote Speaker</span>
+                    <ul class="committee-list">
+                        <li>Wenyong Dong, Wuhan University , China</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================ -->
+        <!-- 中文注释：Paper Submission 面板（论文提交页面） -->
+        <!-- ================================ -->
+        <div class="submission-panel" id="submissionPanel">
+            <button class="submission-close-btn" onclick="hideSubmissionPanel()">Close</button>
+            <div class="submission-header">PAPER SUBMISSION</div>
+            <div class="submission-wrap">
+                <div class="submission-section">
+                    <p>The conferences proceedings will be published in the book series of Lecture Notes in Electrical Engineering by Springer. Normally, papers in this series are indexed by EI and Scopus. If a paper is not presented in the conference, the paper will be excluded from the conference proceedings.</p>
+                    
+                    <p>Please note that the page length limit is 8-10 pages. Extra pages will incur extra page charges. Each paper is allowed to have maximum 2 extra pages with raising JPY 15,000 registration fee per extra page.</p>
+                    
+                    <p>Please follow the following templates of Springer book series in the preparation of your manuscripts.</p>
+                    
+                    <ul>
+                        <li>LaTeX: <a href="zip/LaTex_Package.zip">LaTeX Package.zip</a></li>
+                        <li>Microsoft Word: <a href="zip/Word_Template.zip">Word Template.zip</a></li>
+                    </ul>
+                    
+                    <p>Please submit your manuscript via <a href="https://cmt3.research.microsoft.com/ICGEC2025" target="_blank">https://cmt3.research.microsoft.com/ICGEC2025</a></p>
+                    
+                    <p>Guidelines for paper submission can be downloaded <a href="pdf/Paper.pdf">here</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================ -->
+        <!-- 中文注释：Presentation Guidelines 面板（演讲指南页面） -->
+        <!-- ================================ -->
+        <div class="presentation-panel" id="presentationPanel">
+            <button class="presentation-close-btn" onclick="hidePresentationPanel()">Close</button>
+            <div class="presentation-header">PRESENTATION GUIDELINES</div>
+            <div class="presentation-wrap">
+                <div class="presentation-section">
+                    <h3>Presentation Guidelines</h3>
+                    <p>Each oral presentation has 15 minutes:</p>
+                    <ul>
+                        <li>12 minutes for presentation</li>
+                        <li>3 minutes for Q&A</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================ -->
+        <!-- 中文注释：Invited Sessions 面板（特邀会议页面） -->
+        <!-- ================================ -->
+        <div class="invited-sessions-panel" id="invitedSessionsPanel">
+            <button class="invited-sessions-close-btn" onclick="hideInvitedSessionsPanel()">Close</button>
+            <div class="invited-sessions-header">INVITED SESSIONS</div>
+            <div class="invited-sessions-wrap">
+                <div class="invited-sessions-content">
+                    <p>Dear Prospective Organizers,</p>
+                    
+                    <p>Thank you for considering this Call for Invited Sessions from ICGEC-2025. ICGEC-2025 has the highest respect for organizers of Invited Sessions. An organizer for an Invited Session will have complete and independent control and judgment in reviewing and selecting submitted papers. Papers intended for an Invited Session should be submitted to its organizer directly and bypass the regular reviewing process for General Session. If we have the honor of having your participation, please prepare a CFP for your Invited Session and return it to us (<a href="mailto:mvs@ygu.edu.cn">mvs@ygu.edu.cn</a>). Our staff shall post it on the conference website.</p>
+                    
+                    <p>We thank you and look forward to seeing you during ICGEC-2025.</p>
+                    
+                    <div class="invited-sessions-signature">
+                        <p>Sincerely,</p>
+                        <p>Zheng Zhang, Pei Hu</p>
+                        <p>Invited Session Chairs</p>
+                    </div>
+                    
+                    <div class="invited-sessions-example">
+                        <div class="invited-sessions-example-item">
+                            <div class="invited-sessions-example-code">ICGEC-2025-SS01</div>
+                            <div class="invited-sessions-example-title">
+                                <a href="pdf/ICGEC-2025-SS03-CFP.pdf">Special Session on AIoT Technology and Applications</a>
+                                <div class="invited-sessions-example-organizers">
+                                    Organizers: Prof. Tien-Wen Sung, Prof. Liang-Cheng Shiu, and Prof. Chao-Yang Lee
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================ -->
+        <!-- 中文注释：Text Viewer 面板（文本文件查看器） -->
+        <!-- ================================ -->
+        <div class="text-viewer-panel" id="textViewerPanel">
+            <button class="text-viewer-close-btn" onclick="hideTextViewer()">Close</button>
+            <div class="text-viewer-header" id="textViewerHeader">文本内容</div>
+            <div class="text-viewer-wrap">
+                <div class="text-viewer-content" id="textViewerContent">加载中...</div>
+            </div>
+        </div>
+
+        <!-- ================================ -->
+        <!-- 中文注释：Conference Registration 面板（会议注册页面） -->
+        <!-- ================================ -->
+        <div class="registration-panel" id="registrationPanel">
+            <button class="registration-close-btn" onclick="hideRegistrationPanel()">Close</button>
+            <div class="registration-header">CONFERENCE REGISTRATION</div>
+            <div class="registration-wrap">
+                <div class="registration-content">
+                    <p>Dear Contributing Authors and Attendees</p>
+                    
+                    <p>We would like to express out appreciation and congratulations for the distinguished works you contributed to ICGEC-2025. Please follow the following instructions to accomplish the required procedures for conference registration.</p>
+                    
+                    <p>All attendees for ICGEC-2025 are kindly requested to register. Related forms and supporting documents must be received with payment in USD or RMB no later than December 8,2025. Please note that at least one author per paper must register. Otherwise the paper will not be included in the ICGEC-2025 technical program and proceedings.</p>
+                    
+                    <p>ICGEC-2025 participants must make registrations through ICGEC-2025 Registration Site, and pay the fees.</p>
+                    
+                    <p>The (Student, Non-Student, Co-author) registrations include conference proceedings and gives access to all the technical sessions, workshop, keynote speeches, lunches, coffee breaks, banquet and farewell party included in the conference program.</p>
+                    
+                    <p>Please feel free to let us know if you have any problem regarding the conference registration. Thank you again for your contribution to ICGEC-2025.</p>
+                    
+                    <div class="registration-signature">
+                        <p>Sincerely,</p>
+                        <p>Finance Chair of ICGEC-2025</p>
+                        <p><a href="mailto:mvs@ygu.edu.cn">mvs@ygu.edu.cn</a></p>
+                        <p><a href="https://icgec25.github.io/" target="_blank">https://icgec25.github.io/</a></p>
+                    </div>
+                    
+                    <div class="registration-files">
+                        <ul>
+                            <li><a href="docx/ICGEC2025_Registration_Form.docx">ICGEC2025_Registration_Form</a></li>
+                            <li><a href="docx/ICGEC2025_Copyright Form.docx">ICGEC2025_Copyright Form</a></li>
+                            <li><a href="docx/CONFERENCE REGISTRATION.docx">CONFERENCE REGISTRATION</a></li>
+                            <li><a href="#" onclick="showTextViewer('docx/签署Copyright Form 注意事项.txt'); return false;">签署Copyright Form 注意事项</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto carousel
+        setInterval(nextSlide, 5000);
+
+        // Add click events for navigation menu
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove all active states
+                document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+                
+                // Add current active state
+                this.classList.add('active');
+                
+                // 中文注释：点击任意菜单，先隐藏主页轮播图与所有面板
+                hideAllPanels();
+                document.querySelector('.main-content').classList.add('hidden');
+
+                // 中文注释：根据具体菜单只显示对应面板
+                const text = this.textContent.trim();
+                if (text === 'ICGEC-2025') {
+                    showHome();
+                } else if (text === 'News') {
+                    showNews();
+                } else if (text === 'Call for Papers') {
+                    showPdfPanel();
+                } else if (text === 'Important Dates') {
+                    showDatesPanel();
+                } else if (text === 'Organizing Committee') {
+                    showCommitteePanel();
+                } else if (text === 'Paper Submission') {
+                    showSubmissionPanel();
+                } else if (text === 'Presentation Guidelines') {
+                    showPresentationPanel();
+                } else if (text === 'Invited Sessions') {
+                    showInvitedSessionsPanel();
+                } else if (text === 'Conference Registration') {
+                    showRegistrationPanel();
+                }
+                
+                // 移动端点击导航菜单后自动关闭导航菜单
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-menu').classList.remove('active');
+                    removeCloseButton();
+                }
+            });
+        });
+
+        // 中文注释：隐藏所有右侧面板（不显示主页）
+        function hideAllPanels() {
+            document.getElementById('newsPanel').classList.remove('active');
+            document.getElementById('pdfPanel').classList.remove('active');
+            const datesP = document.getElementById('datesPanel');
+            if (datesP) datesP.classList.remove('active');
+            const commP = document.getElementById('committeePanel');
+            if (commP) commP.classList.remove('active');
+            const submP = document.getElementById('submissionPanel');
+            if (submP) submP.classList.remove('active');
+            const presP = document.getElementById('presentationPanel');
+            if (presP) presP.classList.remove('active');
+            const invSessP = document.getElementById('invitedSessionsPanel');
+            if (invSessP) invSessP.classList.remove('active');
+            const regP = document.getElementById('registrationPanel');
+            if (regP) regP.classList.remove('active');
+            const textViewerP = document.getElementById('textViewerPanel');
+            if (textViewerP) textViewerP.classList.remove('active');
+            
+            // 关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+        }
+
+        // Show full-width news panel and hide homepage content
+        function showNews() {
+            // 先关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            document.getElementById('newsPanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        // Hide full-width news panel and show homepage content
+        function hideNewsPanel() {
+            document.getElementById('newsPanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+            // 重置导航菜单的激活状态
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        // ================================
+        // 中文注释：PDF 面板的显示/隐藏逻辑
+        // ================================
+        function showPdfPanel() {
+            // 先关闭可能存在的移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            // 检测是否为移动设备
+            if (window.innerWidth <= 768) {
+                // 手机端：直接显示PDF图片
+                showMobilePdfImage();
+            } else {
+                // 桌面端：显示内嵌PDF面板
+                document.getElementById('pdfPanel').classList.add('active');
+                document.querySelector('.main-content').classList.add('hidden');
+            }
+        }
+
+        function hidePdfPanel() {
+            document.getElementById('pdfPanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+            // 重置导航菜单的激活状态
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+        
+        // 移动端显示PDF图片
+        function showMobilePdfImage() {
+            // 创建移动端PDF图片显示容器
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'mobile-pdf-image-container';
+            imageContainer.innerHTML = `
+                <div class="pdf-image-header">
+                    <h2>Call for Papers</h2>
+                    <button class="pdf-image-close-btn" onclick="closeMobilePdfImage()">×</button>
+                </div>
+                <div class="pdf-image-content">
+                    <div class="pdf-image-viewer">
+                        <img src="pdf/CallforPaper.png" alt="Call for Papers" class="pdf-image" />
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(imageContainer);
+            
+            // 隐藏主页内容
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+        
+        // 关闭移动端PDF图片显示
+        function closeMobilePdfImage() {
+            const container = document.querySelector('.mobile-pdf-image-container');
+            if (container) {
+                container.remove();
+            }
+            // 显示主页内容
+            document.querySelector('.main-content').classList.remove('hidden');
+        }
+        
+
+        
+
+        
+
+        
+
+
+        // ================================
+        // 中文注释：Important Dates 面板 显示/隐藏
+        // ================================
+        function showDatesPanel() {
+            // 先关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            document.getElementById('datesPanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        function hideDatesPanel() {
+            document.getElementById('datesPanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+            // 重置导航菜单的激活状态
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        // ================================
+        // 中文注释：Organizing Committee 面板 显示/隐藏
+        // ================================
+        function showCommitteePanel() {
+            // 先关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            document.getElementById('committeePanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        function hideCommitteePanel() {
+            document.getElementById('committeePanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+            // 重置导航菜单的激活状态
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        // ================================
+        // 中文注释：Paper Submission 面板 显示/隐藏
+        // ================================
+        function showSubmissionPanel() {
+            // 先关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            document.getElementById('submissionPanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        function hideSubmissionPanel() {
+            document.getElementById('submissionPanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+            // 重置导航菜单的激活状态
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        // ================================
+        // 中文注释：Presentation Guidelines 面板 显示/隐藏
+        // ================================
+        function showPresentationPanel() {
+            // 先关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            document.getElementById('presentationPanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        function hidePresentationPanel() {
+            document.getElementById('presentationPanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+            // 重置导航菜单的激活状态
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        // ================================
+        // 中文注释：Invited Sessions 面板 显示/隐藏
+        // ================================
+        function showInvitedSessionsPanel() {
+            // 先关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            document.getElementById('invitedSessionsPanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        function hideInvitedSessionsPanel() {
+            document.getElementById('invitedSessionsPanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+            // 重置导航菜单的激活状态
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        // ================================
+        // 中文注释：Conference Registration 面板 显示/隐藏
+        // ================================
+        function showRegistrationPanel() {
+            // 先关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            document.getElementById('registrationPanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        function hideRegistrationPanel() {
+            document.getElementById('registrationPanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+            // 重置导航菜单的激活状态
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        // ================================
+        // 中文注释：Text Viewer 面板 显示/隐藏
+        // ================================
+        function showTextViewer(filePath) {
+            // 先关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            // 设置标题
+            const fileName = filePath.split('/').pop().replace('.txt', '');
+            document.getElementById('textViewerHeader').textContent = fileName;
+            
+            // 读取文件内容
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('文件读取失败');
+                    }
+                    // 使用text()方法读取，浏览器会自动处理UTF-8编码
+                    return response.text();
+                })
+                .then(text => {
+                    document.getElementById('textViewerContent').textContent = text;
+                    document.getElementById('textViewerPanel').classList.add('active');
+                    document.querySelector('.main-content').classList.add('hidden');
+                })
+                .catch(error => {
+                    console.error('读取文件错误:', error);
+                    document.getElementById('textViewerContent').textContent = '文件读取失败，请稍后重试。';
+                    document.getElementById('textViewerPanel').classList.add('active');
+                    document.querySelector('.main-content').classList.add('hidden');
+                });
+        }
+
+        function hideTextViewer() {
+            document.getElementById('textViewerPanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+        }
+
+        // 中文注释：返回主页（点击ICGEC-2025菜单项时）
+        function showHome() {
+            hideAllPanels();
+            document.querySelector('.main-content').classList.remove('hidden');
+        }
+
+        // 移动端导航按钮事件处理
+        document.getElementById('mobileNavToggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+            
+            // 添加关闭按钮
+            if (navMenu.classList.contains('active')) {
+                addCloseButton();
+            } else {
+                removeCloseButton();
+            }
+        });
+        
+        // 添加关闭按钮
+        function addCloseButton() {
+            if (!document.querySelector('.mobile-close-btn')) {
+                const closeBtn = document.createElement('button');
+                closeBtn.className = 'mobile-close-btn';
+                closeBtn.innerHTML = '×';
+                closeBtn.onclick = function() {
+                    // 关闭导航菜单
+                    document.querySelector('.nav-menu').classList.remove('active');
+                    removeCloseButton();
+                    
+                    // 返回轮播图页面（主页）
+                    showHome();
+                    
+                    // 重置导航菜单的激活状态
+                    document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+                    // 设置ICGEC-2025为激活状态
+                    document.querySelector('.nav-menu a:first-child').classList.add('active');
+                };
+                document.body.appendChild(closeBtn);
+            }
+        }
+        
+        // 移除关闭按钮
+        function removeCloseButton() {
+            const closeBtn = document.querySelector('.mobile-close-btn');
+            if (closeBtn) {
+                closeBtn.remove();
+            }
+        }
+    </script>
+</body>
+</html>
+
+

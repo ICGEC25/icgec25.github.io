@@ -858,6 +858,95 @@
             font-family: 'Microsoft YaHei', Arial, sans-serif;
         }
 
+        /* ================================ */
+        /* 中文注释：Keynote Speech 面板样式 */
+        /* ================================ */
+        .keynote-speech-panel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            overflow-y: auto;
+            z-index: 29;
+            display: none;
+        }
+        .keynote-speech-panel.active { display: block; }
+        
+        .keynote-speech-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .keynote-speech-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            font-weight: bold;
+        }
+        .keynote-speech-wrap { 
+            max-width: 1400px; 
+            margin: 24px auto 80px auto; 
+            padding: 0 40px; 
+        }
+        .keynote-speech-content { 
+            margin: 28px 0; 
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .keynote-speech-content p { 
+            margin: 15px 0; 
+        }
+        .keynote-speech-content a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+        .keynote-speech-content a:hover {
+            text-decoration: underline;
+        }
+        .keynote-speech-profile {
+            display: flex;
+            gap: 40px;
+            margin: 30px 0;
+            align-items: flex-start;
+        }
+        .keynote-speech-photo {
+            flex-shrink: 0;
+            width: 220px;
+            height: 280px;
+        }
+        .keynote-speech-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .keynote-speech-text {
+            flex: 1;
+            min-width: 0;
+        }
+        @media (max-width: 768px) {
+            .keynote-speech-profile {
+                flex-direction: column;
+                align-items: center;
+            }
+            .keynote-speech-photo {
+                width: 150px;
+                height: 188px;
+            }
+        }
+
         .carousel-logo-item {
             display: flex;
             flex-direction: column;
@@ -1221,6 +1310,7 @@
         .presentation-close-btn,
         .invited-sessions-close-btn,
         .registration-close-btn,
+        .keynote-speech-close-btn,
         .text-viewer-close-btn {
             position: fixed;
             top: 20px;
@@ -1338,6 +1428,7 @@
         .committee-panel,
         .submission-panel,
         .presentation-panel,
+        .keynote-speech-panel,
         .invited-sessions-panel,
         .registration-panel,
         .text-viewer-panel {
@@ -1351,6 +1442,7 @@
         .committee-panel,
         .submission-panel,
         .presentation-panel,
+        .keynote-speech-panel,
         .invited-sessions-panel,
         .registration-panel,
         .text-viewer-panel {
@@ -1408,6 +1500,7 @@
         .committee-panel .committee-header,
         .submission-panel .submission-header,
         .presentation-panel .presentation-header,
+        .keynote-speech-panel .keynote-speech-header,
         .invited-sessions-panel .invited-sessions-header,
         .registration-panel .registration-header,
         .text-viewer-panel .text-viewer-header {
@@ -1420,6 +1513,7 @@
         .committee-panel .committee-wrap,
         .submission-panel .submission-wrap,
         .presentation-panel .presentation-wrap,
+        .keynote-speech-panel .keynote-speech-wrap,
         .invited-sessions-panel .invited-sessions-wrap,
         .registration-panel .registration-wrap,
         .text-viewer-panel .text-viewer-wrap {
@@ -1431,6 +1525,7 @@
         .committee-section,
         .submission-section,
         .presentation-section,
+        .keynote-speech-content,
         .invited-sessions-content,
         .registration-content,
         .text-viewer-content {
@@ -1455,7 +1550,7 @@
                 <li><a href="#">News</a></li>
 <!--                <li><a href="#">Galleries</a></li>-->
                 <li><a href="#">Organizing Committee</a></li>
-<!--                <li><a href="#">Keynote Speech</a></li>-->
+                <li><a href="#">Keynote Speech</a></li>
                 <li><a href="#">Call for Papers</a></li>
                 <li><a href="#">Important Dates</a></li>
                 <li><a href="#">Invited Sessions</a></li>
@@ -1805,32 +1900,69 @@
             <div class="registration-header">CONFERENCE REGISTRATION</div>
             <div class="registration-wrap">
                 <div class="registration-content">
-                    <p>Dear Contributing Authors and Attendees</p>
+                    <p>For overseas authors and participants, please complete the registration and payment according to the following methods. At least one author of each accepted paper must register and pay the fee before <strong>December 1, 2025</strong>.</p>
                     
-                    <p>We would like to express out appreciation and congratulations for the distinguished works you contributed to ICGEC-2025. Please follow the following instructions to accomplish the required procedures for conference registration.</p>
+                    <p>The registration fee is US$500 per paper, and each paper must be at least 10 pages in length but not exceed 12 pages. If the paper exceeds 12 pages, an additional fee of US$50 will be charged for each additional page, with a maximum of 14 pages per paper.</p>
                     
-                    <p>All attendees for ICGEC-2025 are kindly requested to register. Related forms and supporting documents must be received with payment in USD or RMB no later than December 8,2025. Please note that at least one author per paper must register. Otherwise the paper will not be included in the ICGEC-2025 technical program and proceedings.</p>
+                    <p>Each paper registration fee allows only one author to attend the conference. If two or more authors of a paper attend the conference, you need to pay extra $250 for each author. For non-paper attendees, the registration fee for each person is $250 (please be sure to make payment in advance).</p>
                     
-                    <p>ICGEC-2025 participants must make registrations through ICGEC-2025 Registration Site, and pay the fees.</p>
+                    <p>The registration fee covers the conference proceedings, conference program guide, attendance at all technical sessions, lunches and Dinners, coffee breaks, conference gifts. Traveling and lodging fees are not included.</p>
                     
-                    <p>The (Student, Non-Student, Co-author) registrations include conference proceedings and gives access to all the technical sessions, workshop, keynote speeches, lunches, coffee breaks, banquet and farewell party included in the conference program.</p>
+                    <p><strong>The methods of registration payment:</strong></p>
+                    <p>Telegraphic Transfer:</p>
+                    <p>Please pay your registration fee by wire transfer to the following account:</p>
+                    <p>Beneficiary's name: ZHOU XIUCHENG<br>
+                    Account Number: 6217 8508 0001 1136 742<br>
+                    Beneficiary's Bank: BANK OF CHINA，SHANGHAI BR.<br>
+                    Beneficiary's Bank Address: 200 Mid Yincheng Road, Pudong Area, Shanghai, China<br>
+                    SWIFT Code: BKCHCNBJ300</p>
                     
-                    <p>Please feel free to let us know if you have any problem regarding the conference registration. Thank you again for your contribution to ICGEC-2025.</p>
+                    <p><strong>NOTE:</strong></p>
+                    <p>1. If you make the Telegraphic Transfer payment, please make sure Paper ID and first author's name is filled in the "Postscript" column. After the payment, please keep the receipt of payment, and you must send a scanned copy of the receipt to <a href="mailto:mvs@ygu.edu.cn">mvs@ygu.edu.cn</a>. We need it to confirm your payment situation.</p>
+                    <p>2. Please download the "<a href="docx/ICGEC2025_Registration_Form.docx">ICGEC2025_Registration_Form.docx</a>" from the website. After completing the form, please email it to <a href="mailto:mvs@ygu.edu.cn">mvs@ygu.edu.cn</a> before December 1, 2025.</p>
                     
-                    <div class="registration-signature">
-                        <p>Sincerely,</p>
-                        <p>Finance Chair of ICGEC-2025</p>
-                        <p><a href="mailto:mvs@ygu.edu.cn">mvs@ygu.edu.cn</a></p>
-                        <p><a href="https://icgec25.github.io/" target="_blank">https://icgec25.github.io/</a></p>
-                    </div>
+                    <p>对中国境内作者，请按照下面的方法完成注册和缴费：</p>
                     
-                    <div class="registration-files">
-                        <ul>
-                            <li><a href="docx/ICGEC2025_Registration_Form.docx">ICGEC2025_Registration_Form</a></li>
-                            <li><a href="docx/ICGEC2025_Copyright Form.docx">ICGEC2025_Copyright Form</a></li>
-                            <li><a href="docx/CONFERENCE REGISTRATION.docx">CONFERENCE REGISTRATION</a></li>
-                            <li><a href="#" onclick="showTextViewer('docx/签署Copyright Form 注意事项.txt'); return false;">签署Copyright Form 注意事项</a></li>
-                        </ul>
+                    <p>接受的每篇论文至少有一位作者须在 2025年12月1日前注册交费。</p>
+                    
+                    <p>每篇论文的注册费为人民币3600元/篇，每篇论文必须至少10页，但不能超过12页，如您的论文超过12页，超出的每个页面需要额外支付人民币350元，且论文最多只能14页。</p>
+                    
+                    <p>每篇论文注册费仅允许一位作者参加会议，对于一篇论文两位或两位以上作者参会的，或无投稿、无录用论文、但將参會的，每位需提前注册交纳人民币1800元（会议现场不方便办理交费,请提前注册交费）。</p>
+                    
+                    <p>每份注册费包括一篇论文的版面费、论文集、一位作者的会务费（包括会议期间午餐、欢迎晚宴、茶歇、会议资料等），但不包括交通及住宿费用。</p>
+                    
+                    <p><strong>付款方式：</strong>电汇或网银</p>
+                    <p>请将注册费通过电汇及网银方式支付如下账号：</p>
+                    <p>帐户名称：上海海蕴信息科技有限公司<br>
+                    开户银行：工商银行上海市大华支行<br>
+                    帐 号：1001169309006211554</p>
+                    
+                    <p><strong>注意：</strong></p>
+                    <p>1.中国作者通过电汇及网银汇款时，请一定要在汇款单"附加信息及用途"栏注明论文编号及第一作者姓名，汇款后，请将您的汇款凭证扫描件或网银汇款截图发送至： <a href="mailto:mvs@ygu.edu.cn">mvs@ygu.edu.cn</a>. 以便我们更好的确认您的付款。</p>
+                    <p>2.请下载"<a href="docx/ICGEC2025_Registration_Form.docx">ICGEC2025_Registration_Form.docx</a>"，完整正确的填写此表后，于 2025年12月1日前发送到此邮箱: <a href="mailto:mvs@ygu.edu.cn">mvs@ygu.edu.cn</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================ -->
+        <!-- 中文注释：Keynote Speech 面板（主题演讲页面） -->
+        <!-- ================================ -->
+        <div class="keynote-speech-panel" id="keynoteSpeechPanel">
+            <button class="keynote-speech-close-btn" onclick="hideKeynoteSpeechPanel()">Close</button>
+            <div class="keynote-speech-header">KEYNOTE SPEECH</div>
+            <div class="keynote-speech-wrap">
+                <div class="keynote-speech-content">
+                    <div class="keynote-speech-profile">
+                        <div class="keynote-speech-photo">
+                            <img src="imgs/people.png" alt="Zhenyu Meng">
+                        </div>
+                        <div class="keynote-speech-text">
+                            <p>Zhenyu Meng is a Level-III Professor and Vice Dean of the School of Computer Science and Mathematics at Fujian University of Technology, and the Director of Institute of Artificial Intelligence at the University. He holds a Ph.D. in Computer Application Technology from Harbin Institute of Technology, and he serves as the Deputy Director of the Computational Intelligence and Its Applications Committee of the Chinese Association of Automation (CAA), a peer-review expert for the National Natural Science Foundation of China (NSFC), a dissertation review expert for the Academic Degrees Center of the Ministry of Education, a Category-B High-Level Talent of Fujian Province, and a review expert for provincial key programs as well as talent programs in Fujian Province and in Xiamen City & Fouzhou City. He is also a review expert for faculty title promotions in Fujian universities and Academic Bridge, a Senior Member of IEEE and CCF, a lifetime member of CAA, a member of ACM, a committee member of CCF's Technical Committees on Artificial Intelligence and Pattern Recognition, and a member of the expert databases for Shenzhen Science and Technology Projects and Fuzhou Scientific and Technological Achievements Transformation. He has led eight projects including the NSFC fundation and other projects, He has also participated in ten major projects, including national NDRC demonstration projects, subprojects of the National 863 Program, and high-level talent projects in Shenzhen.</p>
+                            
+                            <p>He has published more than 50 SCI/EI papers as first author/corresponding author, including over 40 papers in CAS Q1 SCI journals. His PaDE algorithm published in KBS in 2019 became a Highly Cited Paper in Web of Science in November of the same year and remains highly cited. His HARD-DE algorithm, published in 2019, received a letter of commendation from Prof. Adam Piotrowski—Associate Editor of the CAS Q1 journal SWEVO and a researcher at the Polish Academy of Sciences—recommending it as the best algorithm for solving the air–water model and ranking it first among 12 state-of-the-art algorithms. The study recommending the HARD-DE algorithm was published in June 2021 in the CAS Q1 journal Journal of Hydrology (see: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022169421002663" target="_blank">https://www.sciencedirect.com/science/article/abs/pii/S0022169421002663</a>). Additionally, he was listed in Stanford University Professor John P. A. Ioannidis and Elsevier's "World's Top 2% Scientists" rankings for Annual Scientific Impact in 2021, 2023, 2024, and 2025 (see: <a href="https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/" target="_blank">https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/</a>).</p>
+                            
+                            <p>He holds six authorized patents as the first inventor and has received two international silver medals in invention competitions (Geneva International Invention Exhibition and Nuremberg International Invention Exhibition). He serves as a reviewer for multiple WoS JCR Q1 journals, including IEEE-TEVC, TKDE, TIFS, TSMCA, TCYB, TNNLS, TII, TEC, INS, KBS, SWEVO, ASOC, ESWA, EAAI, Renewable Energy, Chaos, Solitons & Fractals, ISA Transactions, Journal of the Franklin Institute, as well as Chinese SCI journals such as Chinese Journal of Electronics, IEEE/CAA journal of Automatica Sinica.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1892,6 +2024,8 @@
                     showDatesPanel();
                 } else if (text === 'Organizing Committee') {
                     showCommitteePanel();
+                } else if (text === 'Keynote Speech') {
+                    showKeynoteSpeechPanel();
                 } else if (text === 'Paper Submission') {
                     showSubmissionPanel();
                 } else if (text === 'Presentation Guidelines') {
@@ -1918,6 +2052,8 @@
             if (datesP) datesP.classList.remove('active');
             const commP = document.getElementById('committeePanel');
             if (commP) commP.classList.remove('active');
+            const keynoteP = document.getElementById('keynoteSpeechPanel');
+            if (keynoteP) keynoteP.classList.remove('active');
             const submP = document.getElementById('submissionPanel');
             if (submP) submP.classList.remove('active');
             const presP = document.getElementById('presentationPanel');
@@ -2119,6 +2255,30 @@
 
         function hidePresentationPanel() {
             document.getElementById('presentationPanel').classList.remove('active');
+            // 返回轮播图页面（主页）
+            showHome();
+            // 重置导航菜单的激活状态
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        // ================================
+        // 中文注释：Keynote Speech 面板 显示/隐藏
+        // ================================
+        function showKeynoteSpeechPanel() {
+            // 先关闭移动端PDF图片显示
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+            
+            document.getElementById('keynoteSpeechPanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        function hideKeynoteSpeechPanel() {
+            document.getElementById('keynoteSpeechPanel').classList.remove('active');
             // 返回轮播图页面（主页）
             showHome();
             // 重置导航菜单的激活状态

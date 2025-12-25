@@ -904,6 +904,26 @@
             line-height: 1.8;
             color: #333;
         }
+        .keynote-speech-item {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .keynote-speech-item:last-child {
+            border-bottom: none;
+        }
+        .keynote-speech-item-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 14px 0;
+            color: #222;
+        }
+        .keynote-speech-talk-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            color: #2a5298;
+        }
         .keynote-speech-content p { 
             margin: 15px 0; 
         }
@@ -945,6 +965,196 @@
                 width: 150px;
                 height: 188px;
             }
+        }
+
+        .conference-program-panel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            overflow-y: auto;
+            z-index: 29;
+            display: none;
+        }
+        .conference-program-panel.active { display: block; }
+
+        .conference-program-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .conference-program-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            font-weight: bold;
+        }
+        .conference-program-wrap {
+            max-width: 1100px;
+            margin: 24px auto 80px auto;
+            padding: 0 40px;
+        }
+        .conference-program-content {
+            margin: 28px 0;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .cp-raw {
+            display: none;
+        }
+
+        .cp-schedule {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid rgba(0,0,0,0.35);
+            background: #fff;
+        }
+
+        .cp-schedule th,
+        .cp-schedule td {
+            border: 1px solid rgba(0,0,0,0.35);
+            padding: 10px 14px;
+            vertical-align: middle;
+        }
+
+        .cp-date-row th {
+            background: #eaf2fb;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .cp-time {
+            width: 92px;
+            background: #dbe9f6;
+            text-align: center;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .cp-detail {
+            text-align: center;
+        }
+
+        .cp-event-title {
+            font-weight: 700;
+        }
+
+        .cp-event-sub {
+            margin-top: 2px;
+        }
+
+        .pp-session {
+            margin: 0 0 30px 0;
+        }
+
+        .pp-session-title {
+            font-weight: 800;
+            font-size: 26px;
+            margin: 0 0 14px 0;
+            color: #111;
+        }
+
+        .pp-meta {
+            margin: 0 0 16px 0;
+        }
+
+        .pp-meta-row {
+            margin: 6px 0;
+        }
+
+        .pp-label {
+            font-weight: 800;
+        }
+
+        .pp-paper {
+            margin: 18px 0 0 0;
+        }
+
+        .pp-paper-header {
+            font-weight: 800;
+            margin: 0 0 8px 0;
+        }
+
+        .pp-paper-body {
+            padding-left: 28px;
+        }
+
+        .pp-paper-row {
+            margin: 6px 0;
+        }
+
+        .pp-text {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            line-break: anywhere;
+        }
+
+        .paper-presentation-panel {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 280px;
+            background: rgba(255,255,255,0.95);
+            overflow-y: auto;
+            z-index: 29;
+            display: none;
+        }
+        .paper-presentation-panel.active { display: block; }
+
+        .paper-presentation-close-btn {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 20px 0 0;
+            background: #ff6b6b;
+            border: none;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .paper-presentation-header {
+            text-align: center;
+            font-size: 48px;
+            letter-spacing: 3px;
+            color: #222;
+            padding: 26px 20px 14px 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            font-weight: bold;
+        }
+        .paper-presentation-wrap {
+            max-width: 1100px;
+            margin: 24px auto 80px auto;
+            padding: 0 40px;
+        }
+        .paper-presentation-content {
+            margin: 28px 0;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .program-pre {
+            margin: 0;
+            white-space: pre-wrap;
+            line-height: 1.8;
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            line-break: anywhere;
         }
 
         .carousel-logo-item {
@@ -1049,18 +1259,43 @@
             
             .nav-menu.active {
                 display: block;
-                animation: slideIn 0.3s ease-out;
             }
-            
-            @keyframes slideIn {
-                from {
-                    opacity: 0;
-                    transform: translateX(-100%);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
+
+            .conference-program-panel,
+            .paper-presentation-panel {
+                left: 0;
+            }
+
+            .conference-program-header,
+            .paper-presentation-header {
+                font-size: 28px;
+                letter-spacing: 1px;
+                padding: 18px 16px 10px 16px;
+            }
+
+            .conference-program-wrap,
+            .paper-presentation-wrap {
+                padding: 0 16px;
+                margin: 16px auto 60px auto;
+            }
+
+            .cp-time {
+                width: 74px;
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .cp-detail {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            .pp-session-title {
+                font-size: 20px;
+            }
+
+            .pp-paper-body {
+                padding-left: 18px;
             }
             
             .nav-menu li {
@@ -1311,6 +1546,8 @@
         .invited-sessions-close-btn,
         .registration-close-btn,
         .keynote-speech-close-btn,
+        .conference-program-close-btn,
+        .paper-presentation-close-btn,
         .text-viewer-close-btn {
             position: fixed;
             top: 20px;
@@ -1429,10 +1666,13 @@
         .submission-panel,
         .presentation-panel,
         .keynote-speech-panel,
+        .conference-program-panel,
+        .paper-presentation-panel,
         .invited-sessions-panel,
         .registration-panel,
         .text-viewer-panel {
             left: 0;
+            width: 100%;
         }
         
         /* 移动端面板优化 */
@@ -1501,6 +1741,8 @@
         .submission-panel .submission-header,
         .presentation-panel .presentation-header,
         .keynote-speech-panel .keynote-speech-header,
+        .conference-program-panel .conference-program-header,
+        .paper-presentation-panel .paper-presentation-header,
         .invited-sessions-panel .invited-sessions-header,
         .registration-panel .registration-header,
         .text-viewer-panel .text-viewer-header {
@@ -1514,6 +1756,8 @@
         .submission-panel .submission-wrap,
         .presentation-panel .presentation-wrap,
         .keynote-speech-panel .keynote-speech-wrap,
+        .conference-program-panel .conference-program-wrap,
+        .paper-presentation-panel .paper-presentation-wrap,
         .invited-sessions-panel .invited-sessions-wrap,
         .registration-panel .registration-wrap,
         .text-viewer-panel .text-viewer-wrap {
@@ -1526,6 +1770,8 @@
         .submission-section,
         .presentation-section,
         .keynote-speech-content,
+        .conference-program-content,
+        .paper-presentation-content,
         .invited-sessions-content,
         .registration-content,
         .text-viewer-content {
@@ -1551,6 +1797,8 @@
 <!--                <li><a href="#">Galleries</a></li>-->
                 <li><a href="#">Organizing Committee</a></li>
                 <li><a href="#">Keynote Speech</a></li>
+                <li><a href="#">Conference Program</a></li>
+                <li><a href="#">Paper Presentation</a></li>
                 <li><a href="#">Call for Papers</a></li>
                 <li><a href="#">Important Dates</a></li>
                 <li><a href="#">Invited Sessions</a></li>
@@ -1952,18 +2200,470 @@
             <div class="keynote-speech-header">KEYNOTE SPEECH</div>
             <div class="keynote-speech-wrap">
                 <div class="keynote-speech-content">
-                    <div class="keynote-speech-profile">
-                        <div class="keynote-speech-photo">
-                            <img src="imgs/people.png" alt="Zhenyu Meng">
-                        </div>
-                        <div class="keynote-speech-text">
-                            <p>Zhenyu Meng is a Level-III Professor and Vice Dean of the School of Computer Science and Mathematics at Fujian University of Technology, and the Director of Institute of Artificial Intelligence at the University. He holds a Ph.D. in Computer Application Technology from Harbin Institute of Technology, and he serves as the Deputy Director of the Computational Intelligence and Its Applications Committee of the Chinese Association of Automation (CAA), a peer-review expert for the National Natural Science Foundation of China (NSFC), a dissertation review expert for the Academic Degrees Center of the Ministry of Education, a Category-B High-Level Talent of Fujian Province, and a review expert for provincial key programs as well as talent programs in Fujian Province and in Xiamen City & Fouzhou City. He is also a review expert for faculty title promotions in Fujian universities and Academic Bridge, a Senior Member of IEEE and CCF, a lifetime member of CAA, a member of ACM, a committee member of CCF's Technical Committees on Artificial Intelligence and Pattern Recognition, and a member of the expert databases for Shenzhen Science and Technology Projects and Fuzhou Scientific and Technological Achievements Transformation. He has led eight projects including the NSFC fundation and other projects, He has also participated in ten major projects, including national NDRC demonstration projects, subprojects of the National 863 Program, and high-level talent projects in Shenzhen.</p>
-                            
-                            <p>He has published more than 50 SCI/EI papers as first author/corresponding author, including over 40 papers in CAS Q1 SCI journals. His PaDE algorithm published in KBS in 2019 became a Highly Cited Paper in Web of Science in November of the same year and remains highly cited. His HARD-DE algorithm, published in 2019, received a letter of commendation from Prof. Adam Piotrowski—Associate Editor of the CAS Q1 journal SWEVO and a researcher at the Polish Academy of Sciences—recommending it as the best algorithm for solving the air–water model and ranking it first among 12 state-of-the-art algorithms. The study recommending the HARD-DE algorithm was published in June 2021 in the CAS Q1 journal Journal of Hydrology (see: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022169421002663" target="_blank">https://www.sciencedirect.com/science/article/abs/pii/S0022169421002663</a>). Additionally, he was listed in Stanford University Professor John P. A. Ioannidis and Elsevier's "World's Top 2% Scientists" rankings for Annual Scientific Impact in 2021, 2023, 2024, and 2025 (see: <a href="https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/" target="_blank">https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/</a>).</p>
-                            
-                            <p>He holds six authorized patents as the first inventor and has received two international silver medals in invention competitions (Geneva International Invention Exhibition and Nuremberg International Invention Exhibition). He serves as a reviewer for multiple WoS JCR Q1 journals, including IEEE-TEVC, TKDE, TIFS, TSMCA, TCYB, TNNLS, TII, TEC, INS, KBS, SWEVO, ASOC, ESWA, EAAI, Renewable Energy, Chaos, Solitons & Fractals, ISA Transactions, Journal of the Franklin Institute, as well as Chinese SCI journals such as Chinese Journal of Electronics, IEEE/CAA journal of Automatica Sinica.</p>
+                    <div class="keynote-speech-item">
+                        <div class="keynote-speech-item-title">Keynote Speech (I)</div>
+                        <div class="keynote-speech-profile">
+                            <div class="keynote-speech-photo">
+                                <img src="imgs/speech1.png" alt="Prof. Jerry C. Lin">
+                            </div>
+                            <div class="keynote-speech-text">
+                                <div class="keynote-speech-talk-title">Utility-Pattern Analysis and Mining</div>
+                                <p><strong>Prof. Jerry C. Lin</strong>, Silesian University of Technology, Poland</p>
+                                <p><strong>Abstract</strong></p>
+                                <p>With the rapid growth of data collected daily from individuals, businesses, and various applications, numerous algorithms have been developed to identify interesting and useful patterns that satisfy user-specified requirements. The primary goal of data analysis and data mining is to discover novel and potentially valuable patterns that can be effectively applied in real-world scenarios. For example, analyzing customer transaction data in retail environments can reveal meaningful insights into purchasing behavior, which can subsequently support informed decision-making.</p>
+                                <p>In recent years, there has been a growing demand for utility-oriented pattern mining and analytics, as these approaches are capable of uncovering more useful and informative patterns than traditional binary-based pattern mining methods, such as association rule mining and frequent itemset mining. Utility-oriented techniques have been successfully applied across a wide range of domains, including cross-marketing, e-commerce, finance, and medical and biomedical applications.</p>
+                                <p>In this talk, I will first highlight the advantages of utility-oriented pattern mining and analytics in comparison with traditional approaches. I will then provide a comprehensive overview of the state of the art in utility-oriented pattern mining techniques, organized into three main perspectives: the data level, the constraint level, and the application level. Various techniques and modeling strategies addressing different aspects of utility-oriented pattern mining will be presented and reviewed. Finally, I will discuss how evolutionary models can be integrated into utility-mining tasks.</p>
+                                <p><strong>Biography</strong></p>
+                                <p>Professor Junwei Lin is a distinguished scholar at the Silesian University of Technology in Poland. His research expertise spans data mining and analysis, soft computing, deep learning/machine learning, optimization algorithms, Internet of Things applications, as well as privacy preservation and security technologies. He is the head of the well-known SPMF project, which offers over 200 data mining algorithms and has been widely cited across numerous application fields. Professor Lin has been honored as a &quot;Chinese Highly Cited Scholar&quot; by Elsevier/Scopus in 2018, 2019, and 2020, and was recognized as a &quot;Top 2% Scientist Worldwide&quot; by Stanford University from 2019 to 2024. He is also a Fellow of the Institution of Engineering and Technology (FIET), an ACM Distinguished Scientist, and a Senior Member of IEEE.</p>
+                                <p><strong>Keynote Chair</strong></p>
+                                <p>Shujuan Zhu, Nanjing University of Information Science and Technology, China</p>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="keynote-speech-item">
+                        <div class="keynote-speech-item-title">Keynote Speech (II)</div>
+                        <div class="keynote-speech-profile">
+                            <div class="keynote-speech-photo">
+                                <img src="imgs/speech2.png" alt="Prof. Zhenyu Meng">
+                            </div>
+                            <div class="keynote-speech-text">
+                                <div class="keynote-speech-talk-title">Meta-heuristic Optimization Algorithms: Improved Strategies and Engineering Application</div>
+                                <p><strong>Prof. Zhenyu Meng</strong>, Vice Dean of the School of Computer Science and Mathematics, Fujian University of Technology, China</p>
+                                <p><strong>Abstract</strong></p>
+                                <p>NP-hard problems are not unsolvable; metaheuristic algorithms provide a feasible path to tackling such &quot;impossible&quot; challenges. These algorithms are not some distant &quot;black magic&quot;—they are robust tools for finding high-quality, usable approximate optimal solutions within a reasonable timeframe. Professor Meng Zhenyu from Fujian University of Technology delivered a report titled &quot;Metaheuristic Optimization Algorithms: Enhancement Strategies and Engineering Applications.&quot; With a focus on &quot;addressing cutting-edge domains, concentrating on breakthrough innovation, and solidifying practical applications&quot; as the key themes, he shared the latest research findings from his team, unveiling the mysteries behind &quot;impossibility.&quot;</p>
+                                <p><strong>Biography</strong></p>
+                                <p>Zhenyu Meng is a Level-III Professor and Vice Dean of the School of Computer Science and Mathematics at Fujian University of Technology, and the Director of Institute of Artificial Intelligence at the University. He holds a Ph.D. in Computer Application Technology from Harbin Institute of Technology.</p>
+                                <p>Zhenyu Meng serves as the Deputy Director of the Computational Intelligence and Its Applications Committee of the Chinese Association of Automation (CAA), a peer-review expert for the National Natural Science Foundation of China (NSFC), a dissertation review expert for the Academic Degrees Center of the Ministry of Education, a Category-B High-Level Talent of Fujian Province, and a review expert for provincial key programs as well as talent programs in Fujian Province and in Xiamen City &amp; Fouzhou City. He is also a review expert for faculty title promotions in Fujian universities and Academic Bridge, a Senior Member of IEEE and CCF, a lifetime member of CAA, a member of ACM, a committee member of CCF&apos;s Technical Committees on Artificial Intelligence and Pattern Recognition, and a member of the expert databases for Shenzhen Science and Technology Projects and Fuzhou Scientific and Technological Achievements Transformation. He has led eight projects including the NSFC fundation and other projects, He has also participated in ten major projects, including national NDRC demonstration projects, subprojects of the National 863 Program, and high-level talent projects in Shenzhen.</p>
+                                <p>He has published more than 50 SCI/EI papers as first author/corresponding author, including over 40 papers in CAS Q1 SCI journals. His PaDE algorithm published in KBS in 2019 became a Highly Cited Paper in Web of Science in November of the same year and remains highly cited. His HARD-DE algorithm, published in 2019, received a letter of commendation from Prof. Adam Piotrowski—Associate Editor of the CAS Q1 journal SWEVO and a researcher at the Polish Academy of Sciences—recommending it as the best algorithm for solving the air–water model and ranking it first among 12 state-of-the-art algorithms. The study recommending the HARD-DE algorithm was published in June 2021 in the CAS Q1 journal Journal of Hydrology (see: <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022169421002663" target="_blank">https://www.sciencedirect.com/science/article/abs/pii/S0022169421002663</a>).</p>
+                                <p>Additionally, he was listed in Stanford University Professor John P. A. Ioannidis and Elsevier&apos;s &quot;World&apos;s Top 2% Scientists&quot; rankings for Annual Scientific Impact in 2021, 2023, 2024, and 2025 (see: <a href="https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/" target="_blank">https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/</a>).</p>
+                                <p>He holds six authorized patents as the first inventor and has received two international silver medals in invention competitions (Geneva International Invention Exhibition and Nuremberg International Invention Exhibition). He serves as a reviewer for multiple WoS JCR Q1 journals, including IEEE-TEVC, TKDE, TIFS, TSMCA, TCYB, TNNLS, TII, TEC, INS, KBS, SWEVO, ASOC, ESWA, EAAI, Renewable Energy, Chaos, Solitons &amp; Fractals, ISA Transactions, Journal of the Franklin Institute, as well as Chinese SCI journals such as Chinese Journal of Electronics, IEEE/CAA journal of Automatica Sinica.</p>
+                                <p><strong>Keynote Chair</strong></p>
+                                <p>Lingda Chi, Yango University, China</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="keynote-speech-item">
+                        <div class="keynote-speech-item-title">Keynote Speech (III)</div>
+                        <div class="keynote-speech-profile">
+                            <div class="keynote-speech-photo">
+                                <img src="imgs/speech3.png" alt="Res. Xingsi Xue">
+                            </div>
+                            <div class="keynote-speech-text">
+                                <div class="keynote-speech-talk-title">Evolutionary Ontology Matching</div>
+                                <p><strong>Res. Xingsi Xue</strong>, Fujian University of Technology, China</p>
+                                <p><strong>Abstract</strong></p>
+                                <p>Ontology matching plays a pivotal role in enabling semantic interoperability across heterogeneous knowledge systems. Traditional methods, though effective in specific domains, often suffer from limited adaptability, interpretability, or dependence on extensive labeled data. This keynote presents recent advances in evolutionary ontology matching, emphasizing how Genetic Programming (GP) can be leveraged to automate the construction and optimization of similarity features (SFs), classification rules, and aggregation strategies. The first part introduces a Multi-Layer Genetic Programming (MLGP) framework that integrates SF construction, entity pair classification, and alignment aggregation within a unified evolutionary model. By representing individuals as hierarchical trees and employing adaptive fitness functions, MLGP achieves superior scalability and matching accuracy across diverse ontology alignment benchmarks. The second part explores a Collaborative Ontology Matching framework that combines Partial Standard Alignment (PSA) and Active Meta-Learning (AML) to reduce expert supervision and enhance robustness. This framework dynamically updates partial alignments and leverages weighted random forest learning to refine evolutionary search in noisy or incomplete scenarios. Together, these evolutionary paradigms demonstrate a new generation of ontology matching systems that are self-adaptive, interpretable, and capable of continuously learning from evolving semantic environments, thereby advancing the development of intelligent knowledge integration in the Semantic Web.</p>
+                                <p><strong>Biography</strong></p>
+                                <p>Xingsi Xue is a Professor and Researcher at Fujian University of Technology. He received his Ph.D. in Computer Application Technology from Xidian University in 2014, conducted postdoctoral research at Victoria University of Wellington, New Zealand, from 2022 to 2023, and served as a Visiting Scholar at the University of Birmingham, United Kingdom, from 2016 to 2017. His recent research focuses on intelligent computation, knowledge engineering, and complex entity matching methods. He has led or participated in over 40 research projects, including the National Natural Science Foundation of China, the Natural Science Foundation of the Fujian Provincial Department of Science and Technology, and research programs of the Fujian Provincial Department of Education.</p>
+                                <p>He has published more than 300 academic papers in leading international journals and conferences, including over 180 SCI-indexed papers, and has authored two English monographs. He holds over ten granted invention patents. His achievements have been recognized with several honors, including the ACM China Rising Star Award and the Fujian Provincial Excellent Academic Paper Award in Natural Science. He has also been selected as a New Century Excellent Talent of Fujian Higher Education Institutions and an Outstanding Young Scientific Research Talent of Fujian Universities.</p>
+                                <p>He is currently an IEEE Senior Member and a China Computer Federation (CCF) Distinguished Member, serving as Secretary General of the CCF Fuzhou Branch and Vice Chair of the CCF YOCSEF Fuzhou. From 2021 to 2025, he has been consecutively listed among the World&apos;s Top 2% Scientists (Annual Impact) released by Stanford University, and since 2023, he has also been continuously included in its Career-Long Impact list. From 2022 to 2025, he has been recognized among the global top 0.05% scholars by ScholarGPS, consistently ranking first worldwide in the field of Ontology research.</p>
+                                <p><strong>Keynote Chair</strong></p>
+                                <p>Xiaoyu Ke, Yango University, China</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="keynote-speech-item">
+                        <div class="keynote-speech-item-title">Keynote Speech (IV)</div>
+                        <div class="keynote-speech-profile">
+                            <div class="keynote-speech-photo">
+                                <img src="imgs/speech4.png" alt="Prof. Baojun Qiao">
+                            </div>
+                            <div class="keynote-speech-text">
+                                <p><strong>Prof. Baojun Qiao</strong>, Henan University, China</p>
+                                <p><strong>Abstract</strong></p>
+                                <p>Aiming at addressing issues such as inconsistent system specifications for multi-source heterogeneous remote sensing image data, complex and slow production processes of massive remote sensing products, low data interpretation accuracy in complex scenarios, and insecure remote sensing data sharing and algorithm calling, this study has developed autonomous controllable key technologies for intelligent processing of aerospace multi-source remote sensing data. A &quot;five-layer and fifteen-level&quot; remote sensing data organization system was designed, which supports standardized slicing of multi-source heterogeneous data. An intelligent scheduling and acceleration method for remote sensing products was established, which supports parallel task scheduling in distributed cluster systems. By integrating a process customization method, it achieves efficient full-process production of products on the domestic Sugon platform. A set of deep learning algorithms for intelligent remote sensing image processing was proposed. Targeting different objects in various scenarios, it realizes multi-level interpretation tasks such as classification, detection, recognition, and semantic understanding. A a full-process trusted technology system for remote sensing big data was constructed, which supports the traceability of data sources and the verification of algorithm calling processes, thereby realizing secure sharing of remote sensing data and trusted calling of algorithms. A supporting service platform for intelligent processing of aerospace multi-source remote sensing data with the characteristics of &quot;unification, high speed, intelligence, and trustworthiness&quot; was developed. Based on this platform, services are provided for industries such as environmental protection, energy, agriculture, and water conservancy, achieving favorable economic and social benefits.</p>
+                                <p><strong>Biography</strong></p>
+                                <p>Baojun Qiao is currently a Professor at the School of Computer and Information Engineering, Henan University; Director of Henan Key Laboratory of Big Data Analysis and Processing; and Doctoral Supervisor. He also holds the titles of Distinguished Teacher of Henan Province, Academic Leader of the Department of Education of Henan Province, and Scientific and Technological Innovation Talent in Colleges and Universities of Henan Province. His main research direction is artificial intelligence. He has successively presided over and participated in more than 20 scientific research projects at the national and provincial levels, published more than 50 academic papers publicly, and won 2 Second Prizes of the Henan Provincial Science and Technology Progress Award.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="keynote-speech-item">
+                        <div class="keynote-speech-item-title">Keynote Speech (V)</div>
+                        <div class="keynote-speech-profile">
+                            <div class="keynote-speech-photo">
+                                <img src="imgs/speech5.png" alt="Prof. Lu Yin">
+                            </div>
+                            <div class="keynote-speech-text">
+                                <p><strong>Prof. Lu Yin</strong>, the University of Surrey, UK</p>
+                                <p><strong>Abstract</strong></p>
+                                <p>Deep Neural Networks (DNNs) in artificial intelligence have achieved unprecedented breakthroughs in many fields in recent years, driven by the continuous expansion and improvement of model size and capabilities. However, this strategy of driving performance growth through scale expansion has also brought about increasingly massive computational and storage demands, making the training and inference processes of AI models increasingly resource-intensive. This not only significantly increases economic costs and environmental burden, but also presents challenges in practical deployment, such as energy consumption, hardware costs, and service latency. To address these issues, model sparsity has emerged as a promising solution. By selectively sparsifying the parameters of AI models, it is possible to significantly reduce storage and computational requirements while largely maintaining the model&apos;s performance. More importantly, the benefits of model sparsity are not limited to improved resource utilization and efficiency. In the current trend of increasing emphasis on fairness, reliability, and sustainability in AI systems, sparsity methods also help mitigate potential biases in models and lay the foundation for building more socially responsible AI systems in the future. This report systematically explores the multifaceted value of model sparsity in deep learning, from its theoretical foundations to practical applications. Through the discussion of these dimensions, this report aims to provide researchers and practitioners with a more comprehensive understanding of the potential impact of sparsification strategies and offer valuable insights for their widespread application and in-depth development in the future artificial intelligence ecosystem.</p>
+                                <p><strong>Biography</strong></p>
+                                <p>Lu Yin is a tenured Assistant Professor and PhD supervisor at the University of Surrey, UK. He has also served as a long-term visiting researcher at Eindhoven University of Technology and the University of Texas at Austin. He completed both his bachelor&apos;s and master&apos;s degrees at Harbin Institute of Technology, and later earned his PhD from Eindhoven University of Technology in the Netherlands.</p>
+                                <p>He has published more than 40 research papers in top international AI conferences, including ICML, NeurIPS, ICLR, AAAI, and UAI. He has received the Best Paper Award at the LoG conference and a Best Paper Nomination at ICVS. Dr. Yin maintains extensive collaborations with leading universities worldwide, such as the University of Texas at Austin, the University of Oxford, University College London, and the Max Planck Institute in Germany. In addition, he works closely with major tech companies including Google, Meta, and Intel. His research on AI model acceleration algorithms has already been applied in industry, including by companies like Cerebras and NeuralMagic.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="keynote-speech-item">
+                        <div class="keynote-speech-item-title">Keynote Speech (VI)</div>
+                        <div class="keynote-speech-profile">
+                            <div class="keynote-speech-photo">
+                                <img src="imgs/speech6.png" alt="Postdoctoral researcher Wenzhao Zheng">
+                            </div>
+                            <div class="keynote-speech-text">
+                                <p><strong>Postdoctoral researcher. Wenzhao Zheng</strong>, the Artificial Intelligence Lab of the University of California, Berkeley, USA</p>
+                                <p><strong>Abstract</strong></p>
+                                <p>Autonomous driving systems rely on a complex pipeline that integrates perception, prediction, planning, and control, all of which require substantial computational resources to operate reliably in real time. However, the growing scale of multimodal sensor data and deep neural networks has created significant challenges for on-board computing, including latency, energy consumption, and hardware constraints. This report explores key strategies for achieving efficient computing in autonomous driving, focusing on model compression, hardware–algorithm co-design, edge–cloud collaborative computing, and efficient data processing frameworks. We analyze how lightweight perception models, quantization techniques, and sparse neural architectures can dramatically reduce computational load without compromising safety. Furthermore, we discuss the importance of real-time scheduling, memory-efficient execution, and adaptive resource management within autonomous driving platforms. By integrating algorithmic optimization with emerging AI accelerators and distributed computing paradigms, this report outlines a comprehensive pathway toward scalable, energy-efficient, and safety-critical autonomous driving systems. The findings provide both theoretical insights and practical guidance for advancing next-generation intelligent mobility.</p>
+                                <p><strong>Biography</strong></p>
+                                <p>Wenzhao Zheng is currently a postdoctoral fellow in the Department of EECS at University of California, Berkeley, affiliated with Berkeley Artificial Intelligence Research Lab (BAIR) and Berkeley Deep Drive (BDD). Prior to that, he received the B.S. degree and the Ph.D. degree from the Department of Physics and Department of Automation, Tsinghua University, China, in 2018 and 2023, respectively. He was awarded the Excellent Doctoral Dissertation of Chinese Association for Artificial Intelligence in 2024. His current research interests include computer vision, world models, and embodied agents. He has authored more than 40 papers in TPAMI, CVPR, ICCV, ECCV, NeurIPS, ICML, and ICLR. He serves as a regular reviewer member for a number of journals and conferences, e.g., TPAMI, TIP, TMM, CVPR, ICCV, ECCV, NeurIPS, ICML, and ICLR.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="keynote-speech-item">
+                        <div class="keynote-speech-item-title">Keynote Speech (VII)</div>
+                        <div class="keynote-speech-profile">
+                            <div class="keynote-speech-photo">
+                                <img src="imgs/speech7.png" alt="Prof. Jeng-Shyang Pan">
+                            </div>
+                            <div class="keynote-speech-text">
+                                <div class="keynote-speech-talk-title">Meta-heuristic Optimization Algorithms with Surrogate Assisted Models</div>
+                                <p><strong>Prof. Jeng-Shyang Pan</strong>, Nanjing University of Information Science and Technology, China</p>
+                                <p><strong>Abstract</strong></p>
+                                <p>Meta-heuristic Optimization Algorithms have been shown to be successful for many engineering and commercial applications. However, the expensive computation time of the Meta-heuristic Optimization Algorithms cause the limitations for the real time applications of the many areas. There are several research issues to improve the efficiency of the Meta-heuristic Optimization Algorithms including the hardware implementation and the application of the surrogate assisted models. This talk will focus on the introduction of Meta-heuristic Optimization Algorithms for continuous, discrete, binary and categorical data optimization problems. The surrogate assisted optimization algorithms such as the surrogate assisted models selection, the combination of the Meta-heuristic Optimization Algorithm with the surrogate assisted models will be introduced. The three major branches of the surrogate assisted optimization algorithms, for example the sampling scheme, the simplified fitness function and the dimension decomposition will also be discussed.</p>
+                                <p><strong>Biography</strong></p>
+                                <p>Jeng-Shyang Pan received the B. S. degree in Electronic Engineering from the National Taiwan University of Science and Technology in 1986, the M. S. degree in Communication Engineering from the National Chiao Tung University, Taiwan in 1988, and the Ph.D. degree in Electrical Engineering from the University of Edinburgh, U.K. in 1996. He has published more than 900 papers in which around 500 papers are indexed by SCI, the H-Index is 79 and the total cited times are more than 25000. He owns more than 80 patents. He has edited or authored more than 100 books. He is the IET Fellow, UK and has been the Vice Chair of IEEE Tainan Section. He was Awarded Gold Prize in the International Micro Mechanisms Contest held in Tokyo, Japan in 2010. He was also awarded Gold Medal in the Pittsburgh Invention &amp; New Product Exposition (INPEX) in 2010, Gold Medal in the International Exhibition of Geneva Inventions in 2011 and Gold Medal of the IENA, International &quot;Ideas – Inventions – New products&quot;, Nuremberg, Germany. His current research interests include computational intelligence, artificial intelligence and smart city.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="conference-program-panel" id="conferenceProgramPanel">
+            <button class="conference-program-close-btn" onclick="hideConferenceProgramPanel()">Close</button>
+            <div class="conference-program-header">CONFERENCE PROGRAM</div>
+            <div class="conference-program-wrap">
+                <div class="conference-program-content">
+                    <pre class="program-pre cp-raw" id="conferenceProgramRaw">December 18, 2025 (Thursday)
+08:30 | 09:00  Registration
+(Location: Concert Hall, Zhengde Building)
+09:00 | 09:30  Opening
+Speaker: Prof. Xinhua Jiang, President of Yango University, China
+(Location: Concert Hall, Zhengde Building, Yango University)
+09:30 | 10:15  Keynote Speech 1
+Speaker: Prof. Jerry C. Lin, Silesian University of Technology, Poland
+Title: Utility-Pattern Analysis and Mining
+(Location: Concert Hall, Zhengde Building, Yango University)
+10:15 | 10:30  Coffee Break
+10:30 | 11:15  Keynote Speech 2
+Speaker: Prof. Zhenyu Meng, Vice Dean of the School of Computer Science and Mathematics, Fujian University of Technology, China
+Title: Meta-heuristic Optimization Algorithms: Improved Strategies and Engineering Application
+(Location: Concert Hall, Zhengde Building, Yango University)
+11:15 | 12:00  Keynote Speech 3
+Speaker: Res. Xingsi Xue, Fujian University of Technology, China
+Title: Evolutionary Ontology Matching
+(Location: Concert Hall, Zhengde Building, Yango University)
+12:00 | 14:00  Lunch
+(Location: 2ed Floor, East Area, Yangguang Restaurant, Yango University)
+14:00 | 15:30  Paper Presentation (Session A01)
+(Location: 720 Conference Room, Zhengde Building, Yango University)
+15:30 | 15:45  Coffee Break
+15:45 | 17:15  Paper Presentation (Session A02)
+(Location: 720 Conference Room, Zhengde Building, Yango University)
+17:30 | 20:00  Banquet
+(Location: Sanjiang International Hotel)
+
+December 19, 2025 (Friday)
+09:00 | 10:30  Paper Presentation (Session A03)
+(Location: 720 Conference Room, Zhengde Building, Yango University)
+10:30 | 10:45  Coffee Break
+10:45 | 12:00  Paper Presentation (Session A04)
+(Location: 720 Conference Room, Zhengde Building, Yango University)
+12:00 | 14:00  Lunch
+(Location: 2ed Floor, East Area, Yangguang Restaurant, Yango University)
+14:00 | 15:30  Paper Presentation (Session A05)
+(Location: 720 Conference Room, Zhengde Building, Yango University)
+15:30 | 15:45  Coffee Break
+15:45 | 17:15  Paper Presentation (Session A06)
+(Location: 720 Conference Room, Zhengde Building, Yango University)
+20:00  Closing
+
+December 22, 2025 (Monday)
+08:30 | 09:00  Registration
+(Location: Second Lecture Hall)
+09:00 | 09:30  Opening
+Speaker: Prof. Haoshan Hao, President of Nanyang Institute of Technology, China
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+09:30 | 10:00  Keynote Speech I
+Speaker: Prof. Baojun Qiao, Henan University, China
+Title: Intelligent Processing Technologies and Applications for Multi-source Remote Sensing Data in Aerospace
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+10:00 | 10:15  Coffee Break
+10:15 | 10:45  Keynote Speech V
+Speaker: Prof. Lu Yin, Surrey University, UK (Online)
+Title: Layerwise Insights: A Secret Sauce for LLM Efficiency (Online)
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+10:45 | 11:15  Keynote Speech VI
+Speaker: Postdoctoral fellow, Wenzhao Zheng, the University of California Berkeley, USA (Online)
+Title: Towards Efficient Computing in Autonomous Driving
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+11:15 | 11:45  Keynote Speech VII
+Speaker: Prof. Jeng-Shyang Pan, Nanjing University of Information Science and Technology, China (Online)
+Title: Meta-heuristic Optimization Algorithms with Surrogate Assisted Models (Online)
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+12:00 | 14:00  Lunch
+14:00 | 15:30  Paper Presentation (Session B01)
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+15:30 | 15:45  Coffee Break
+15:45 | 17:15  Paper Presentation (Session B02)
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+
+December 23, 2025 (Tuesday)
+09:00 | 10:30  Paper Presentation (Session B03)
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+10:30 | 10:45  Coffee Break
+10:45 | 12:00  Paper Presentation (Session B04)
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+12:00 | 14:00  Lunch
+14:00 | 15:30  Closing</pre>
+                    <div id="conferenceProgramTable"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="paper-presentation-panel" id="paperPresentationPanel">
+            <button class="paper-presentation-close-btn" onclick="hidePaperPresentationPanel()">Close</button>
+            <div class="paper-presentation-header">PAPER PRESENTATION</div>
+            <div class="paper-presentation-wrap">
+                <div class="paper-presentation-content">
+                    <pre class="program-pre cp-raw" id="paperPresentationRaw">Session A01:
+Date: December 18, 2025 (Thursday)
+Time: 14:00-15:15
+Room: 720 Conference Room, Zhengde Building, Yango University
+Session Chair: Prof. Zhenyu Meng, Fujian University of Technology, China
+Co-chair: Hanhui Wu, Yango University, China
+(1) Paper ID: ICGEC-2025-05
+Paper Title: Matching Ontologies via Dual-Population based Particle Swarm Optimization With Elite Aware Local Search
+Author(s): Jianfei Yang
+(2) Paper ID: ICGEC-2025-18
+Paper Title: A Deep Learning-Based Study on the Classification and Recognition of Stitching Techniques in Jincang Embroidery
+Author(s): Zining Lan; Lufei Yang
+(3) Paper ID: ICGEC-2025-22
+Paper Title: Estimation of Forest stock volume based on the PCA-GA-ExtraTrees model
+Author(s): Jianjin Hu
+(4) Paper ID: ICGEC-2025-14
+Paper Title: Implementation of Adjustable Speed Control based BLDC Motor for Vacuum Cleaner Application
+Author(s): Lingda Chi
+(5) Paper ID: ICGEC-2025-26
+Paper Title: An Enhanced Black-Winged Kite Algorithm and Its Application in the Capacitated Vehicle Routing Problem
+Author(s): Changqi Xu
+(6) Paper ID: ICGEC-2025-64-1
+Paper Title: Top-View Vision System for Individual Cow Identification in Milking Parlors
+Author(s): Aung Si Thu Moe
+
+Session A02:
+Date: December 18, 2025 (Thursday)
+Time: 15:30-17:15
+Room: 720 Conference Room, Zhengde Building, Yango University
+Session Chair: Prof. Zhenyu Meng, Fujian University of Technology, China
+Co-chair: Min Liu, Yango University, China
+(1) Paper ID: ICGEC-2025-28
+Paper Title: An adaptive-threshold warm-start improvement for the L-SHADE method for numerical optimization and analysis
+Author(s): Yinghao Sui
+(2) Paper ID: ICGEC-2025-30
+Paper Title: An excellent parallel dragonfly algorithm with compact strategy for numerical optimization
+Author(s): Shijun Sun
+(3) Paper ID: ICGEC-2025-31
+Paper Title: RLMSROA: A Reinforcement Learning Driven Multi-Subpopulation Rafflesia Optimization Algorithm
+Author(s): Jiawei Sun
+(4) Paper ID: ICGEC-2025-55
+Paper Title: Intelligent Agent Framework for Automatic Error Detection and Correction in Large-Scale Multimodal Documents
+Author(s): Chong Shen
+(5) Paper ID: ICGEC-2025-32
+Paper Title: A Hybrid Meta-Heuristic for Multi-Objective Robot Path Planning in Complex Environments
+Author(s): Shujuan Zhu; Zhengjia Lu; Zhengxiang Pan
+(6) Paper ID: ICGEC-2025-66
+Paper Title: Iris image segmentation method based on dilated convolution and feature fusion
+Author(s): Xiangqi Kong
+(7) Paper ID: ICGEC-2025-67
+Paper Title: Unlocking Value through Innovation: How Big Data Capabilities Enhance MSME Performance via Incremental and Radical Business Model Innovation
+Author(s): Fei Wan
+
+Session A03:
+Date: December 19, 2025 (Friday)
+Time: 09:00-10:15
+Room: 720 Conference Room, Zhengde Building, Yango University
+Session Chair: Prof. Xingsi Xue, Fujian University of Technology, China
+Co-chair: Hanhui Wu, Yango University, China
+(1) Paper ID: ICGEC-2025-49
+Paper Title: A Multi-Strategy Metaheuristic for Optimizing Wireless Sensor Network Deployment
+Author(s): Trong-The Nguyen
+(2) Paper ID: ICGEC-2025-48
+Paper Title: Research on Memory-Coherent Zero-Copy SG-DM Technology Based on the ZYNQ Platform Operating System
+Author(s): Guangxiong Wang
+(3) Paper ID: ICGEC-2025-39
+Paper Title: Enhancing Learning Outcomes Through AI-Agent-Supported Student Assessment
+Author(s): Bixian Zhang
+(4) Paper ID: ICGEC-2025-41
+Paper Title: Efficacy Analysis of Huanglian Wendan Decoction Combined with Psychological Intervention in the Treatment of Post-Stroke Depression
+Author(s): Yang Li
+(5) Paper ID: ICGEC-2025-37
+Paper Title: Market Response and Optimization Strategies for Smart Bands Among Chinese University Students: An Empirical Study Based on BERTopic-Driven Review Topic Clustering
+Author(s): Yuanfei Mei
+
+Session A04:
+Date: December 19, 2025 (Friday)
+Time: 10:30-12:00
+Room: 720 Conference Room, Zhengde Building, Yango University
+Session Chair: Prof. Xingsi Xue, Fujian University of Technology, China
+Co-chair: Jianjin Hu, Yango University, China
+(1) Paper ID: ICGEC-2025-44
+Paper Title: Quantitative and Reinforcement Methods for Satellite Remote Sensing Object Detection Algorithms
+Author(s): Yiqian Huang
+(2) Paper ID: ICGEC-2025-38
+Paper Title: Research on RGB-D Image Instance Segmentation Method Based on Graph Neural Network
+Author(s): Jiangliang Yuan
+(3) Paper ID: ICGEC-2025-50
+Paper Title: Promoting Acceptance of Elderly Care Service platform by Integrating SERVQUAL and Satisfaction, Shanghai Community-support based Community Elder Care as an example
+Author(s): Su-Tzu Hsieh
+(4) Paper ID: ICGEC-2025-56
+Paper Title: A Novel Path-Planning Method for Unmanned Aerial Vehicles Based on a Reinforcement Evolutionary Algorithm
+Author(s): Gaoyuan Liu
+(5) Paper ID: ICGEC-2025-36
+Paper Title: Beyond Plain RF: SSA-BP Feature Gating for Clutch Failure Detection
+Author(s): Linlan Xiao
+(6) Paper ID: ICGEC-2025-65
+Paper Title: Markovian Digital Twins for Precision Healthcare: A Conceptual Framework
+Author(s): Thi Thi Zin
+(7) Paper ID: ICGEC-2025-69
+Paper Title: An Oracle-Assisted Blockchain Framework for Efficient Searchable Encrypted Data Sharing
+Author(s): Ge Feng
+
+Session A05:
+Date: December 19, 2025 (Friday)
+Time: 14:00-15:30
+Room: 720 Conference Room, Zhengde Building, Yango University
+Session Chair: Prof. Xiaoyu Ke, Yango University, China
+Co-chair: Huiying Wu, Yango University, China
+(1) Paper ID: ICGEC-2025-29
+Paper Title: Lithium-Ion Battery SOC Optimized Estimation Via Improved Genetic Algorithm-Assisted BP Neural Network
+Author(s): Jinghua Peng
+(2) Paper ID: ICGEC-2025-33
+Paper Title: NCP-YOLOv11: A Dual Evolutionary Optimization-Driven Model for Small Target Detection in Remote Sensing Images
+Author(s): Meiyan Lin
+(3) Paper ID: ICGEC-2025-34
+Paper Title: Bilingual LLM-Powered Smart Assistant for Foreign-Related Legal Research
+Author(s): Chuntao Du
+(4) Paper ID: ICGEC-2025-35-1
+Paper Title: AI drives the innovation of undergraduate vocational education courses: an innovative practice with "Web Technology Foundation" as an example
+Author(s): Xiaminna
+(5) Paper ID: ICGEC-2025-15
+Paper Title: An Optimized Minimum Dominating Set Algorithm for Cluster Head Selection in Load-Balanced Wireless Sensor Networks
+Author(s): Xiuyuan Hu
+(6) Paper ID: ICGEC-2025-63
+Paper Title: Artificial Intelligence in Cognitive Radio: A DL-ML Fusion for Spectrum Sensing
+Author(s): Md. Tofail Ahmed
+
+Session A06:
+Date: December 19, 2025 (Friday)
+Time: 15:45-17:15
+Room: 720 Conference Room, Zhengde Building, Yango University
+Session Chair: Prof. Xiaoyu Ke, Yango University, China
+Co-chair: ZhiCheng Lai, Yango University, China
+(1) Paper ID: ICGEC-2025-16
+Paper Title: Intelligent Spectrum Sharing in 5G with Cognitive Radio
+Author(s): Lingjie Lai
+(2) Paper ID: ICGEC-2025-42
+Paper Title: Alzheimer's Disease: A Computational Biology Study on Expression Dynamics and Cooperative Regulation of Key SNARE Complex Genes
+Author(s): Chaoyang Pang
+(3) Paper ID: ICGEC-2025-46
+Paper Title: Design of A Reinforcement Learning Method Based on k3s in Spaceborne Environments
+Author(s): Yanke Xu
+(4) Paper ID: ICGEC-2025-47
+Paper Title: Nonconvex Image Reconstruction with Deep Implicit Regularization
+Author(s): Yang Zheng
+(5) Paper ID: ICGEC-2025-35-2
+Paper Title: Big Data-driven battery capacity refinement for electric vehicles: A machine learning-based multi-feature collaborative framework
+Author(s): Qiue Cai
+(6) Paper ID: ICGEC-2025-70
+Paper Title: An Enhanced DV-Hop Localization Method for Power Grid Safety Inspection Applications
+Author(s): Weixiang Zhang
+
+Session B01:
+Date: December 22, 2025 (Monday)
+Time: 14:00-15:30
+Session Chair: Prof. Yanling Shao
+(1) Paper ID: ICGEC-2025-01
+Paper Title: SM2 Database Encrypted Storage Scheme Based on Intrusion Tolerance
+Author(s): Danyang Wang
+(2) Paper ID: ICGEC-2025-02
+Paper Title: Masking the Words with Discriminator for Non-Autoregressive Machine Translation
+Author(s): Dongbai Li; Shuheng Wang
+(3) Paper ID: ICGEC-2025-04
+Paper Title: A Data-Driven Framework for Intelligent Carbon Emission Regulation Integrating Machine Learning with an Extended Kaya Identity
+Author(s): Hu Man; Hu Chenyao; Wang Weihui; Yang Haoyu
+(4) Paper ID: ICGEC-2025-06
+Paper Title: Resource allocation strategy for maximizing energy efficiency of hybrid energy harvesting MEC systems assisted by relay UAVs
+Author(s): Xinya Xu; Hongyun Li; Yiwen Xu
+
+Session B02:
+Date: December 22, 2025 (Monday)
+Time: 14:45-17:15
+Session Chair: Prof. Zheng Zhang
+(1) Paper ID: ICGEC-2025-08
+Paper Title: Structure of Autocorrelation in Fractional Brownian Motion
+Author(s): Henggang Ren; Xiaorong Zhu
+(2) Paper ID: ICGEC-2025-09
+Paper Title: Automatic Segmentation and Recognition Technology of Oracle Bone Inscription Images Based on Deep Learning
+Author(s): Haoyue Xu; Tong Niu; Yihao Ren; Jianing Zhang; Zizhong Shi
+(3) Paper ID: ICGEC-2025-12
+Paper Title: Construction and Research on the Decision-Making Model for Electronic Product Production Processes Under Multi-Objective Constraints
+Author(s): Hongyun Li; Xinya Xu; Pengyu Li
+(4) Paper ID: ICGEC-2025-13
+Paper Title: Low-Light Image Enhancement with Lightweight Illumination Estimation and Multi-Scale Synchronization
+Author(s): Hao Tian; Qingshan Feng; Mina Hou
+(5) Paper ID: ICGEC-2025-19
+Paper Title: Research on the Application Pathways of Big Data Technology in Medical Insurance Auditing
+Author(s): Jia Wen
+
+Session B03:
+Date: December 23, 2025 (Tuesday)
+Time: 09:00-10:30
+Session Chair: Dr. Pei Hu
+(1) Paper ID: ICGEC-2025-20
+Paper Title: Real-time Forest Fire Detection Using "Fire-YOLO" from the Perspective of Marxist Ecological View
+Author(s): Yuan Zhang; Zhen Sun; Ge Ou
+(2) Paper ID: ICGEC-2025-21
+Paper Title: A Deep Reinforcement Learning-Based Approach for HVAC Demand Response Control
+Author(s): Yang Li; Yingan Wei; Hao Qin
+(3) Paper ID: ICGEC-2025-23
+Paper Title: Research on Interactive Serious Game Design Based on Algorithm Bias
+Author(s): Minqi Dun
+(4) Paper ID: ICGEC-2025-24
+Paper Title: Hierarchical Search Differential Evolution Algorithm for Relay Satellite Mission Scheduling
+Author(s): Bingyang Wang; Xinghao Wang; Yiming Zhang; Fangxin Lu; ErBao Xu; Yufeng Wang
+(5) Paper ID: ICGEC-2025-25
+Paper Title: A Novel Dual-Population Co-evolution Hybrid Differential Evolution Algorithm
+Author(s): Ke Chen; Chunxu Chen; Chihao Zhang
+
+Session B04:
+Date: December 23, 2025 (Tuesday)
+Time: 10:45-12:00
+Session Chair: Dr. Pei Hu
+(1) Paper ID: ICGEC-2025-43
+Paper Title: A Big Data and AI Hands-on Platform for Smart Logistics Based on Cloud-Edge Collaborative Architecture
+Author(s): Yanling Shao
+(2) Paper ID: ICGEC-2025-53
+Paper Title: VGG+: A Lightweight and Efficient CNN for Tea Plant Pest and Disease Identification
+Author(s): Wanting Zhang; Xuan Liu; Zhihao Yan; Jing Zhang; Wei Liu
+(3) Paper ID: ICGEC-2025-54
+Paper Title: Multi-Component Data Enhancement Strategy for Improving Tumor Prediction in TMO-Net
+Author(s): Wei Liu; Xuan Liu; Xiangzhi Wang; Zhihao Yan; Yanpei Wang; Ya Qiu; Rui Zhang; Tongnan Yin
+(4) Paper ID: ICGEC-2025-61
+Paper Title: Game-Theoretic Assisted Multi-task Offloading for Logistics Algorithms in End-Edge-Cloud Collaborative Computing
+Author(s): Pingping Shan; Yanling Shao
+(5) Paper ID: ICGEC-2025-64
+Paper Title: Transmission Line Target Recognition and Ranging Based on Point Cloud Segmentation-Clutter Suppression-Kalman Filter
+Author(s): Yanbin Li; Ji Wang; Dong Wang; Hui Li; Yixuan Ding; Songtao Ding; Zhenquan Liu; Yuanfang Liu
+(6) Paper ID: ICGEC-2025-68
+Paper Title: Adaptive Fraud Detection Model For Graph Neighborhood Information Enhancement
+Author(s): Peihan Yang; Zhongzhi Wen; Zheng Zhang</pre>
+                    <div id="paperPresentationRendered" class="pp-text"></div>
                 </div>
             </div>
         </div>
@@ -2026,6 +2726,10 @@
                     showCommitteePanel();
                 } else if (text === 'Keynote Speech') {
                     showKeynoteSpeechPanel();
+                } else if (text === 'Conference Program') {
+                    showConferenceProgramPanel();
+                } else if (text === 'Paper Presentation') {
+                    showPaperPresentationPanel();
                 } else if (text === 'Paper Submission') {
                     showSubmissionPanel();
                 } else if (text === 'Presentation Guidelines') {
@@ -2054,6 +2758,10 @@
             if (commP) commP.classList.remove('active');
             const keynoteP = document.getElementById('keynoteSpeechPanel');
             if (keynoteP) keynoteP.classList.remove('active');
+            const confProgP = document.getElementById('conferenceProgramPanel');
+            if (confProgP) confProgP.classList.remove('active');
+            const paperPresP = document.getElementById('paperPresentationPanel');
+            if (paperPresP) paperPresP.classList.remove('active');
             const submP = document.getElementById('submissionPanel');
             if (submP) submP.classList.remove('active');
             const presP = document.getElementById('presentationPanel');
@@ -2284,6 +2992,214 @@
             // 重置导航菜单的激活状态
             document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
             // 设置ICGEC-2025为激活状态
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        function showConferenceProgramPanel() {
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+
+            if (!window.__conferenceProgramRendered) {
+                renderConferenceProgram();
+                window.__conferenceProgramRendered = true;
+            }
+            document.getElementById('conferenceProgramPanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        function renderConferenceProgram() {
+            const rawEl = document.getElementById('conferenceProgramRaw');
+            const mountEl = document.getElementById('conferenceProgramTable');
+            if (!rawEl || !mountEl) return;
+
+            const lines = rawEl.textContent
+                .split(/\r?\n/)
+                .map(l => l.trim())
+                .filter(l => l.length > 0);
+
+            const isDateLine = (l) => /\b\d{4}\b/.test(l) && /\(/.test(l) && /\)/.test(l) && !/^\d{2}:\d{2}/.test(l);
+            const timeRangeRe = /^(\d{2}:\d{2})\s*\|\s*(\d{2}:\d{2})\s+(.*)$/;
+            const singleTimeRe = /^(\d{2}:\d{2})\s+(.*)$/;
+
+            const groups = [];
+            let current = null;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+
+                if (isDateLine(line)) {
+                    current = { date: line, items: [] };
+                    groups.push(current);
+                    continue;
+                }
+
+                let m = line.match(timeRangeRe);
+                let start = null;
+                let end = null;
+                let title = null;
+                if (m) {
+                    start = m[1];
+                    end = m[2];
+                    title = m[3];
+                } else {
+                    m = line.match(singleTimeRe);
+                    if (m) {
+                        start = m[1];
+                        end = '';
+                        title = m[2];
+                    }
+                }
+
+                if (start && current) {
+                    const details = [];
+                    while (i + 1 < lines.length) {
+                        const peek = lines[i + 1];
+                        if (isDateLine(peek) || timeRangeRe.test(peek) || singleTimeRe.test(peek)) break;
+                        details.push(peek);
+                        i++;
+                    }
+                    current.items.push({ start, end, title, details });
+                }
+            }
+
+            let html = '<table class="cp-schedule">';
+            for (const g of groups) {
+                html += `<tr class="cp-date-row"><th colspan="2">${escapeHtml(g.date)}</th></tr>`;
+                for (const item of g.items) {
+                    const timeText = item.end ? `${item.start}<br>${item.end}` : item.start;
+                    const detailsHtml = item.details
+                        .map(d => `<div class="cp-event-sub">${escapeHtml(d)}</div>`)
+                        .join('');
+                    html += '<tr>';
+                    html += `<td class="cp-time">${timeText}</td>`;
+                    html += `<td class="cp-detail"><div class="cp-event-title">${escapeHtml(item.title)}</div>${detailsHtml}</td>`;
+                    html += '</tr>';
+                }
+            }
+            html += '</table>';
+
+            mountEl.innerHTML = html;
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function hideConferenceProgramPanel() {
+            document.getElementById('conferenceProgramPanel').classList.remove('active');
+            showHome();
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+            document.querySelector('.nav-menu a:first-child').classList.add('active');
+        }
+
+        function showPaperPresentationPanel() {
+            const mobileContainer = document.querySelector('.mobile-pdf-image-container');
+            if (mobileContainer) {
+                mobileContainer.remove();
+            }
+
+            if (!window.__paperPresentationRendered) {
+                renderPaperPresentation();
+                window.__paperPresentationRendered = true;
+            }
+            document.getElementById('paperPresentationPanel').classList.add('active');
+            document.querySelector('.main-content').classList.add('hidden');
+        }
+
+        function renderPaperPresentation() {
+            const rawEl = document.getElementById('paperPresentationRaw');
+            const mountEl = document.getElementById('paperPresentationRendered');
+            if (!rawEl || !mountEl) return;
+
+            const lines = rawEl.textContent
+                .split(/\r?\n/)
+                .map(l => l.trim())
+                .filter(l => l.length > 0);
+
+            const isSessionLine = (l) => /^Session\s+\S+\s*:\s*$/.test(l);
+            const isPaperHeader = (l) => /^\(\d+\)\s*Paper\s*ID\s*:\s*/i.test(l);
+
+            const sessions = [];
+            let currentSession = null;
+            let currentPaper = null;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+
+                if (isSessionLine(line)) {
+                    currentSession = { title: line.replace(/:$/, ''), meta: [], papers: [] };
+                    sessions.push(currentSession);
+                    currentPaper = null;
+                    continue;
+                }
+
+                if (!currentSession) continue;
+
+                if (isPaperHeader(line)) {
+                    currentPaper = { header: line, rows: [] };
+                    currentSession.papers.push(currentPaper);
+                    continue;
+                }
+
+                if (currentPaper) {
+                    currentPaper.rows.push(line);
+                } else {
+                    currentSession.meta.push(line);
+                }
+            }
+
+            const renderKeyValue = (line) => {
+                const idx = line.indexOf(':');
+                if (idx === -1) {
+                    return `<div class="pp-meta-row">${escapeHtml(line)}</div>`;
+                }
+                const key = line.slice(0, idx).trim();
+                const value = line.slice(idx + 1).trim();
+                return `<div class="pp-meta-row"><span class="pp-label">${escapeHtml(key)}:</span> ${escapeHtml(value)}</div>`;
+            };
+
+            const renderPaperRow = (line) => {
+                const idx = line.indexOf(':');
+                if (idx === -1) {
+                    return `<div class="pp-paper-row">${escapeHtml(line)}</div>`;
+                }
+                const key = line.slice(0, idx).trim();
+                const value = line.slice(idx + 1).trim();
+                return `<div class="pp-paper-row"><span class="pp-label">${escapeHtml(key)}:</span> ${escapeHtml(value)}</div>`;
+            };
+
+            let html = '';
+            for (const s of sessions) {
+                html += '<section class="pp-session">';
+                html += `<div class="pp-session-title">${escapeHtml(s.title)}:</div>`;
+                html += '<div class="pp-meta">';
+                html += s.meta.map(renderKeyValue).join('');
+                html += '</div>';
+                for (const p of s.papers) {
+                    html += '<div class="pp-paper">';
+                    html += `<div class="pp-paper-header">${escapeHtml(p.header)}</div>`;
+                    html += '<div class="pp-paper-body">';
+                    html += p.rows.map(renderPaperRow).join('');
+                    html += '</div>';
+                    html += '</div>';
+                }
+                html += '</section>';
+            }
+
+            mountEl.innerHTML = html;
+        }
+
+        function hidePaperPresentationPanel() {
+            document.getElementById('paperPresentationPanel').classList.remove('active');
+            showHome();
+            document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
             document.querySelector('.nav-menu a:first-child').classList.add('active');
         }
 

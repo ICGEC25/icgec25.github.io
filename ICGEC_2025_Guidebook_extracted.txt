@@ -1,0 +1,717 @@
+﻿ICGEC2025
+The 17th International Conference on Genetic and Evolutionary Computing
+December 18-19/22-23, 2025, Fuzhou/Nanyang, China
+
+Part 1: Sponsors
+Host
+Yango University, China
+Nanyang Institute of Technology, China
+Organizer
+School of Metaverse and New Media,Yango University,China
+Institute of Industrial Internet Intelligent Control Technology and System in Universities of Fujian Province,Yango University,China
+Office of Science and Technology,Yango University,China
+School of Computer and Software, Nanyang Institute of Technology, China
+Co-Organizer
+Fujian University of Technology,China
+Nanjing University of Information Science and Technology
+Shandong University Of Science And Technology
+University Of Miyazaki
+In cooperation with
+Springer Nature
+
+
+Part 2:Organizing Committee
+Honorary Chairs
+鈥?Jeng-Shyang Pan, Nanjing University of Information Science and Technology, China
+Advisory Committee Chairs
+鈥?Shen Yin, Norwegian University of Science and Technology, Norway 
+鈥?Giancarlo Fortino, University of Calabria, Italy
+Conference Chairs
+鈥?Xinhua Jiang, Yango University, China, 
+鈥?Haoshan Hao, Nanyang Institute of Technology, China 
+鈥?Jerry Chun-Wei Lin, Silesian University of Technology, Poland 
+鈥?Haoshan Hao, Nanyang Institute of Technology, China
+Program Committee Chairs
+鈥?Xinyu Da, Yango University, China
+鈥?Liming Liu, Nanyang Institute of Technology, China
+鈥?Xingsi Xue, Fujian University of Technology, China
+鈥?Thi Thi Zin, University of Miyazaki, Japan
+鈥?Weijie Jiang, FuZhou Polytechnic, China
+
+Invited Session Chairs
+鈥?Tien-Wen Sung, Fujian University of Technology, China
+鈥?Pei Hu, Nanyang Institute of Technology, China
+鈥?Zheng Zhang, Nanyang Institute of Technology, China
+Local Organizing Chairs
+鈥?Lingda Chi, Yango University, China 
+鈥?Chengli Luo, Yango University, China
+鈥?Yanling Shao, Nanyang Institute of Technology, China
+Publication Chairs
+鈥?Pei Hu, Nanyang Institute of Technology, China 
+鈥?Shu-Chuan Chu, Nanjing University of Information Science and Technology, China
+Finance Chairs
+鈥?Maoying Yuan, Yango University, China
+Program Committee Members
+鈥?Xinyu Da, Yango University, China
+鈥?Liming Liu, Nanyang Institute of Technology, China
+鈥?Xingsi Xue, Fujian University of Technology, China
+鈥?Thi Thi Zin, University of Miyazaki, Japan
+鈥?Weijie Jiang, FuZhou Polytechnic, China
+
+
+
+Part 3:KeyNote Speech
+Keynote Speech (I)
+66516262017           Utility-Pattern Analysis and Mining
+
+
+Prof. Jerry C.Lin, Silesian University of Technology, Poland
+Abstract
+With the rapid growth of data collected daily from individuals, businesses, and various applications, numerous algorithms have been developed to identify interesting and useful patterns that satisfy user-specified requirements. The primary goal of data analysis and data mining is to discover novel and potentially valuable patterns that can be effectively applied in real-world scenarios. For example, analyzing customer transaction data in retail environments can reveal meaningful insights into purchasing behavior, which can subsequently support informed decision-making.
+
+In recent years, there has been a growing demand for utility-oriented pattern mining and analytics, as these approaches are capable of uncovering more useful and informative patterns than traditional binary-based pattern mining methods, such as association rule mining and frequent itemset mining. Utility-oriented techniques have been successfully applied across a wide range of domains, including cross-marketing, e-commerce, finance, and medical and biomedical applications.
+
+In this talk, I will first highlight the advantages of utility-oriented pattern mining and analytics in comparison with traditional approaches. I will then provide a comprehensive overview of the state of the art in utility-oriented pattern mining techniques, organized into three main perspectives: the data level, the constraint level, and the application level. Various techniques and modeling strategies addressing different aspects of utility-oriented pattern mining will be presented and reviewed. Finally, I will discuss how evolutionary models can be integrated into utility-mining tasks.
+Biography
+Professor Junwei Lin is a distinguished scholar at the Silesian University of Technology in Poland. His research expertise spans data mining and analysis, soft computing, deep learning/machine learning, optimization algorithms, Internet of Things applications, as well as privacy preservation and security technologies. He is the head of the well-known SPMF project, which offers over 200 data mining algorithms and has been widely cited across numerous application fields. Professor Lin has been honored as a &quot;Chinese Highly Cited Scholar&quot; by Elsevier/Scopus in 2018, 2019, and 2020, and was recognized as a &quot;Top 2% Scientist Worldwide&quot; by Stanford University from 2019 to 2024. He is also a Fellow of the Institution of Engineering and Technology (FIET), an ACM Distinguished Scientist, and a Senior Member of IEEE.
+
+Keynote Chair
+Shujuan Zhu, Nanjing University of Information Science and Technology, China
+
+
+
+Keynote Speech (II)
+190501285637Meta-heuristic Optimization Algorithms: Improved Strategies and Engineering Application
+
+Prof. Zhenyu Meng, Vice Dean of the School of Computer Science and Mathematics,Fujian University of Technology,China
+
+Abstract
+NP-hard problems are not unsolvable; metaheuristic algorithms provide a feasible path to tackling such &quot;impossible&quot; challenges. These algorithms are not some distant &quot;black magic&quot;鈥攖hey are robust tools for finding high-quality, usable approximate optimal solutions within a reasonable timeframe. Professor Meng Zhenyu from Fujian University of Technology delivered a report titled &quot;Metaheuristic Optimization Algorithms: Enhancement Strategies and Engineering Applications.&quot; With a focus on &quot;addressing cutting-edge domains, concentrating on breakthrough innovation, and solidifying practical applications&quot; as the key themes, he shared the latest research findings from his team, unveiling the mysteries behind &quot;impossibility.&quot;
+Biography
+Zhenyu Meng is a Level-III Professor and Vice Dean of the School of Computer Science and 
+Mathematics at Fujian University of Technology, and the Director of Institute of Artificial Intelligence at the University. He holds a Ph.D. in Computer Application Technology from Harbin Institute of Technology.
+Zhenyu Meng serves as the Deputy Director of the Computational Intelligence and Its Applications Committee of the Chinese Association of Automation (CAA), a peer-review expert for the National Natural Science Foundation of China (NSFC), a dissertation review expert for the Academic Degrees Center of the Ministry of Education, a Category-B High-Level Talent of Fujian Province, and a review expert for provincial key programs as well as talent programs in Fujian Province and in Xiamen City &amp; Fouzhou City. He is also a review expert for faculty title promotions in Fujian universities and Academic Bridge, a Senior Member of IEEE and CCF, a lifetime member of CAA, a member of ACM, a committee member of CCF鈥檚 Technical Committees on Artificial Intelligence and Pattern Recognition, and a member of the expert databases for Shenzhen Science and Technology Projects and Fuzhou Scientific and Technological Achievements Transformation. He has led eight projects including the NSFC fundation and other projects, He has also participated in ten major projects, including national NDRC demonstration projects, subprojects of the National 863 Program, and high-level talent projects in Shenzhen.
+
+He has published more than 50 SCI/EI papers as first author/corresponding author, including over 40 papers in CAS Q1 SCI journals. His PaDE algorithm published in KBS in 2019 became a Highly Cited Paper in Web of Science in November of the same year and remains highly cited. His HARD-DE algorithm, published in 2019, received a letter of commendation from Prof. Adam Piotrowski鈥擜ssociate Editor of the CAS Q1 journal SWEVO and a researcher at the Polish Academy of Sciences鈥攔ecommending it as the best algorithm for solving the air鈥搘ater model and ranking it first among 12 state-of-the-art algorithms. The study recommending the HARD-DE algorithm was published in June 2021 in the CAS Q1 journal Journal of Hydrology (see: https://www.sciencedirect.com/science/article/abs/pii/S0022169421002663). Additionally, he was listed in Stanford University Professor John P. A. Ioannidis and Elsevier&apos;s &quot;World&apos;s Top 2% Scientists&quot; rankings for Annual Scientific Impact in 2021, 2023, 2024, and 2025 (see: HYPERLINK https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/). normalLink \tdfe -10 \tdlt text \tdlf FromInput \tdtf 1 \tdsub normalLink \tdkey d2mmb3https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/).
+
+He holds six authorized patents as the first inventor and has received two international silver medals in invention competitions (Geneva International Invention Exhibition and Nuremberg International Invention Exhibition). He serves as a reviewer for multiple WoS JCR Q1 journals, including IEEE-TEVC, TKDE, TIFS, TSMCA, TCYB, TNNLS, TII, TEC, INS, KBS, SWEVO, ASOC, ESWA, EAAI, Renewable Energy, Chaos, Solitons &amp; Fractals, ISA Transactions, Journal of the Franklin Institute, as well as Chinese SCI journals such as Chinese Journal of Electronics, IEEE/CAA journal of Automatica Sinica.
+
+Keynote Chair
+Lingda Chi, Yango University, China
+
+
+Keynote Speech (鈪?
+Evolutionary Ontology Matching
+ 
+Res. Xingsi Xue, Fujian University of Technology,ChinaAbstract
+Ontology matching plays a pivotal role in enabling semantic interoperability across heterogeneous knowledge systems. Traditional methods, though effective in specific domains, often suffer from limited adaptability, interpretability, or dependence on extensive labeled data. This keynote presents recent advances in evolutionary ontology matching, emphasizing how Genetic Programming (GP) can be leveraged to automate the construction and optimization of similarity features (SFs), classification rules, and aggregation strategies. The first part introduces a Multi-Layer Genetic Programming (MLGP) framework that integrates SF construction, entity pair classification, and alignment aggregation within a unified evolutionary model. By representing individuals as hierarchical trees and employing adaptive fitness functions, MLGP achieves superior scalability and matching accuracy across diverse ontology alignment benchmarks. The second part explores a Collaborative Ontology Matching framework that combines Partial Standard Alignment (PSA) and Active Meta-Learning (AML) to reduce expert supervision and enhance robustness. This framework dynamically updates partial alignments and leverages weighted random forest learning to refine evolutionary search in noisy or incomplete scenarios. Together, these evolutionary paradigms demonstrate a new generation of ontology matching systems that are self-adaptive, interpretable, and capable of continuously learning from evolving semantic environments, thereby advancing the development of intelligent knowledge integration in the Semantic Web.
+
+Biography
+Xingsi Xue is a Professor and Researcher at Fujian University of Technology. He received his Ph.D. in Computer Application Technology from Xidian University in 2014, conducted postdoctoral research at Victoria University of Wellington, New Zealand, from 2022 to 2023, and served as a Visiting Scholar at the University of Birmingham, United Kingdom, from 2016 to 2017. His recent research focuses on intelligent computation, knowledge engineering, and complex entity matching methods. He has led or participated in over 40 research projects, including the National Natural Science Foundation of China, the Natural Science Foundation of the Fujian Provincial Department of Science and Technology, and research programs of the Fujian Provincial Department of Education.
+
+He has published more than 300 academic papers in leading international journals and conferences, including over 180 SCI-indexed papers, and has authored two English monographs. He holds over ten granted invention patents. His achievements have been recognized with several honors, including the ACM China Rising Star Award and the Fujian Provincial Excellent Academic Paper Award in Natural Science. He has also been selected as a New Century Excellent Talent of Fujian Higher Education Institutions and an Outstanding Young Scientific Research Talent of Fujian Universities.
+
+He is currently an IEEE Senior Member and a China Computer Federation (CCF) Distinguished Member, serving as Secretary General of the CCF Fuzhou Branch and Vice Chair of the CCF YOCSEF Fuzhou. From 2021 to 2025, he has been consecutively listed among the World&apos;s Top 2% Scientists (Annual Impact) released by Stanford University, and since 2023, he has also been continuously included in its Career-Long Impact list. From 2022 to 2025, he has been recognized among the global top 0.05% scholars by ScholarGPS, consistently ranking first worldwide in the field of Ontology research.
+
+Keynote Chair
+Xiaoyu Ke, Yango University, China
+
+
+
+Keynote Speech (IV)
+ 
+Prof. Baojun Qiao, Henan University, China
+Abstract
+Aiming at addressing issues such as inconsistent system specifications for multi-source heterogeneous remote sensing image data, complex and slow production processes of massive remote sensing products, low data interpretation accuracy in complex scenarios, and insecure remote sensing data sharing and algorithm calling, this study has developed autonomous controllable key technologies for intelligent processing of aerospace multi-source remote sensing data. A &quot;five-layer and fifteen-level&quot; remote sensing data organization system was designed, which supports standardized slicing of multi-source heterogeneous data. An intelligent scheduling and acceleration method for remote sensing products was established, which supports parallel task scheduling in distributed cluster systems. By integrating a process customization method, it achieves efficient full-process production of products on the domestic Sugon platform. A set of deep learning algorithms for intelligent remote sensing image processing was proposed. Targeting different objects in various scenarios, it realizes multi-level interpretation tasks such as classification, detection, recognition, and semantic understanding. A a full-process trusted technology system for remote sensing big data was constructed, which supports the traceability of data sources and the verification of algorithm calling processes, thereby realizing secure sharing of remote sensing data and trusted calling of algorithms. A supporting service platform for intelligent processing of aerospace multi-source remote sensing data with the characteristics of &quot;unification, high speed, intelligence, and trustworthiness&quot; was developed. Based on this platform, services are provided for industries such as environmental protection, energy, agriculture, and water conservancy, achieving favorable economic and social benefits.
+Biography
+Baojun Qiao is currently a Professor at the School of Computer and Information Engineering, Henan University; Director of Henan Key Laboratory of Big Data Analysis and Processing; and Doctoral Supervisor. He also holds the titles of Distinguished Teacher of Henan Province, Academic Leader of the Department of Education of Henan Province, and Scientific and Technological Innovation Talent in Colleges and Universities of Henan Province. His main research direction is artificial intelligence. He has successively presided over and participated in more than 20 scientific research projects at the national and provincial levels, published more than 50 academic papers publicly, and won 2 Second Prizes of the Henan Provincial Science and Technology Progress Award.
+
+
+
+Keynote Speech (V)
+
+Prof. Lu Yin, the University of Surrey, UK
+Abstract
+Deep Neural Networks (DNNs) in artificial intelligence have achieved unprecedented breakthroughs in many fields in recent years, driven by the continuous expansion and improvement of model size and capabilities. However, this strategy of driving performance growth through scale expansion has also brought about increasingly massive computational and storage demands, making the training and inference processes of AI models increasingly resource-intensive. This not only significantly increases economic costs and environmental burden, but also presents challenges in practical deployment, such as energy consumption, hardware costs, and service latency. To address these issues, model sparsity has emerged as a promising solution. By selectively sparsifying the parameters of AI models, it is possible to significantly reduce storage and computational requirements while largely maintaining the model&apos;s performance. More importantly, the benefits of model sparsity are not limited to improved resource utilization and efficiency. In the current trend of increasing emphasis on fairness, reliability, and sustainability in AI systems, sparsity methods also help mitigate potential biases in models and lay the foundation for building more socially responsible AI systems in the future. This report systematically explores the multifaceted value of model sparsity in deep learning, from its theoretical foundations to practical applications. Through the discussion of these dimensions, this report aims to provide researchers and practitioners with a more comprehensive understanding of the potential impact of sparsification strategies and offer valuable insights for their widespread application and in-depth development in the future artificial intelligence ecosystem.
+Biography
+Lu Yin is a tenured Assistant Professor and PhD supervisor at the University of Surrey, UK. He has also served as a long-term visiting researcher at Eindhoven University of Technology and the University of Texas at Austin. He completed both his bachelor&apos;s and master&apos;s degrees at Harbin Institute of Technology, and later earned his PhD from Eindhoven University of Technology in the Netherlands.
+
+He has published more than 40 research papers in top international AI conferences, including ICML, NeurIPS, ICLR, AAAI, and UAI. He has received the Best Paper Award at the LoG conference and a Best Paper Nomination at ICVS. Dr. Yin maintains extensive collaborations with leading universities worldwide, such as the University of Texas at Austin, the University of Oxford, University College London, and the Max Planck Institute in Germany. In addition, he works closely with major tech companies including Google, Meta, and Intel. His research on AI model acceleration algorithms has already been applied in industry, including by companies like Cerebras and NeuralMagic.
+
+
+
+Keynote Speech (VI)
+ 
+Postdoctoral researcher. Wenzhao Zheng, the Artificial Intelligence Lab of the University of California, Berkeley, USA
+Abstract
+Autonomous driving systems rely on a complex pipeline that integrates perception, prediction, planning, and control, all of which require substantial computational resources to operate reliably in real time. However, the growing scale of multimodal sensor data and deep neural networks has created significant challenges for on-board computing, including latency, energy consumption, and hardware constraints. This report explores key strategies for achieving efficient computing in autonomous driving, focusing on model compression, hardware鈥揳lgorithm co-design, edge鈥揷loud collaborative computing, and efficient data processing frameworks. We analyze how lightweight perception models, quantization techniques, and sparse neural architectures can dramatically reduce computational load without compromising safety. Furthermore, we discuss the importance of real-time scheduling, memory-efficient execution, and adaptive resource management within autonomous driving platforms. By integrating algorithmic optimization with emerging AI accelerators and distributed computing paradigms, this report outlines a comprehensive pathway toward scalable, energy-efficient, and safety-critical autonomous driving systems. The findings provide both theoretical insights and practical guidance for advancing next-generation intelligent mobility.
+
+Biography
+Wenzhao Zheng is currently a postdoctoral fellow in the Department of EECS at University of California, Berkeley, affiliated with Berkeley Artificial Intelligence Research Lab (BAIR) and Berkeley Deep Drive (BDD). Prior to that, he received the B.S. degree and the Ph.D. degree from the Department of Physics and Department of Automation, Tsinghua University, China, in 2018 and 2023, respectively. He was awarded the Excellent Doctoral Dissertation of Chinese Association for Artificial Intelligence in 2024. His current research interests include computer vision, world models, and embodied agents. He has authored more than 40 papers in TPAMI, CVPR, ICCV, ECCV, NeurIPS, ICML, and ICLR. He serves as a regular reviewer member for a number of journals and conferences, e.g., TPAMI, TIP, TMM, CVPR, ICCV, ECCV, NeurIPS, ICML, and ICLR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Keynote Speech (VII)
+ 
+Prof. Jeng-Shyang Pan, Nanjing University of Information Science and Technology, China
+聽
+Abstract
+Meta-heuristic Optimization Algorithms have been shown to be successful for many engineering and commercial applications. However, the expensive computation time of the Meta-heuristic Optimization Algorithms cause the limitations for the real time applications of the many areas. There are several research issues to improve the efficiency of the Meta-heuristic Optimization Algorithms including the hardware implementation and the application of the surrogate assisted models. This talk will focus on the introduction of Meta-heuristic Optimization Algorithms for continuous, discrete, binary and categorical data optimization problems. The surrogate assisted optimization algorithms such as the surrogate assisted models selection, the combination of the Meta-heuristic Optimization Algorithm with the surrogate assisted models will be introduced. The three major branches of the surrogate assisted optimization algorithms, for example the sampling scheme, the simplified fitness function and the dimension decomposition will also be discussed.
+聽
+Biography
+Jeng-Shyang Pan received the B. S. degree in Electronic Engineering from the National Taiwan University of Science and Technology in 1986, the M. S. degree in Communication Engineering from the National Chiao Tung University, Taiwan in 1988, and the Ph.D. degree in Electrical Engineering from the University of Edinburgh, U.K. in 1996. He has published more than 900 papers in which around 500 papers are indexed by SCI, the H-Index is 79 and the total cited times are more than 25000. He owns more than 80 patents. He has edited or authored more than 100 books. He is the IET Fellow, UK and has been the Vice Chair of IEEE Tainan Section. He was Awarded Gold Prize in the International Micro Mechanisms Contest held in Tokyo, Japan in 2010. He was also awarded Gold Medal in the Pittsburgh Invention &amp; New Product Exposition (INPEX) in 2010, Gold Medal in the International Exhibition of Geneva Inventions in 2011 and Gold Medal of the IENA, International 鈥淚deas 鈥?Inventions 鈥?New products鈥? Nuremberg, Germany. His current research interests include computational intelligence, artificial intelligence and smart city.
+ 
+
+
+Part 4:Conference Program
+
+December 18, 2025 (Thursday)
+08:30
+|
+09:00
+Registration
+(Location: Concert Hall,Zhengde Building)
+09:00
+|
+09:30
+Opening
+Speaker: Prof. Xinhua Jiang, President of Yango University, China
+(Location: Concert Hall,Zhengde Building,Yango University)
+09:30
+|
+10:15
+Keynote Speech 1Speaker: Prof. Jerry C.Lin, Silesian University of Technology, PolandTitle: Utility-Pattern Analysis and Mining
+(Location: Concert Hall,Zhengde Building,Yango University)
+10:15
+|
+10:30
+Coffee Break
+10:30
+|
+11:15
+Keynote Speech 2
+Speaker: Prof. Zhenyu Meng, Vice Dean of  the School of Computer Science and Mathematics,Fujian University of Technology,ChinaTitle: Meta-heuristic Optimization Algorithms: Improved Strategies and Engineering Application
+(Location: Concert Hall,Zhengde Building,Yango University)
+11:15
+|
+12:00
+Keynote Speech 3
+Speaker: Res. Xingsi Xue, Fujian University of Technology,ChinaTitle: Evolutionary Ontology Matching
+(Location: Concert Hall,Zhengde Building,Yango University)
+12:00
+|
+14:00
+Lunch
+(Location: 2ed Floor, East Area,Yangguang Restaurant,Yango University)
+14:00
+|
+15:30
+Paper Presentation
+Session A01
+(Location: 720 Conference Room,Zhengde Building,Yango University)
+15:30
+|
+15:45
+Coffee Break
+15:45
+|
+17:15
+Paper Presentation
+Session A02
+(Location: 720 Conference Room,Zhengde Building,Yango University)
+17:30
+|
+20:00
+Banquet
+(Location: Sanjiang International Hotel)
+
+
+December 19, 2025 (Friday)
+09:00
+|
+10:30
+Paper Presentation
+Session A03
+(Location: 720 Conference Room,Zhengde Building,Yango University)
+10:30
+|
+10:45
+Coffee Break
+10:45
+|
+12:00
+Paper Presentation
+Session A04
+(Location: 720 Conference Room,Zhengde Building,Yango University)
+12:00
+|
+14:00
+Lunch
+(Location: 2ed Floor, East Area,Yangguang Restaurant,Yango University)
+14:00
+|
+15:30
+Paper Presentation
+Session A05
+(Location: 720 Conference Room,Zhengde Building,Yango University)
+15:30
+|
+15:45
+Coffee Break
+15:45
+|
+17:15
+Paper Presentation
+Session A06
+(Location: 720 Conference Room,Zhengde Building,Yango University)
+
+17:30
+|
+20:00
+
+Dinner
+20:00
+Closing
+
+
+December 22, 2025 (Monday)
+08:30
+|
+09:00
+Registration
+(Location: Second Lecture Hall)
+09:00
+|
+09:30
+Opening
+Speaker: Prof. Haoshan Hao, President of Nanyang Institute of Technology, China
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+----------------------------------------------------------------------------------------------------------
+Speaker: Prof. Jeng-Shyang Pan, Nanjing University of Information Science and Technology, China (Onlie)
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+09:30
+|
+10:00
+Keynote Speech I
+Speaker: Prof. Baojun Qiao, Henan University, China 
+Title: Intelligent Processing Technologies and Applications for Multi-source Remote Sensing Data in Aerospace
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+10:00
+|
+10:15
+Coffee Break
+10:15
+|
+10:45
+Keynote Speech V
+Speaker: Prof. Lu Yin, Surrey University, UK 
+Title: Layerwise Insights: A Secret Sauce for LLM Efficiency (Onlie)
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+10:45
+|
+11:15
+Keynote Speech VI
+Speaker: Postdoctoral fellow, Wenzhao Zheng, the University of California Berkeley, USA (Onlie)
+Title: Towards Efficient Computing in Autonomous Driving
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+11:15
+|
+11:45
+Keynote Speech VII
+Speaker: Prof. Jeng-Shyang Pan, Nanjing University of Information Science and Technology, China
+Title: Meta-heuristic Optimization Algorithms with Surrogate Assisted Models (Onlie)
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+12:00
+|
+14:30
+Lunch
+14:00
+|
+15:30
+Paper Presentation
+Session B01
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+15:30
+|
+15:45
+Coffee Break
+15:45
+|
+17:15
+Paper Presentation
+Session B02
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+17:30
+|
+20:00
+
+
+
+December 23, 2025 (Tuesday)
+09:00
+|
+10:30
+Paper Presentation
+Session B03
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+10:30
+|
+10:45
+Coffee Break
+10:45
+|
+12:00
+Paper Presentation
+Session B04
+(Location: Second Lecture Hall, Nanyang Institute of Technology)
+12:00
+|
+14:00
+Lunch
+14:00
+|
+15:30
+Closing
+Part 5:Paper Presentation
+Session A01: 
+Date: December 18, 2025 (Thursday)
+Time: 14:00-15:15
+Room: 720 Conference Room,Zhengde Building,Yango University
+Session Chair: Prof. Zhenyu Meng, Fujian University of Technology,ChinaCo-chair: Hanhui Wu, Yango University, China
+(1) Paper ID: ICGEC-2025-05		
+Paper Title: Matching Ontologies via Dual-Population based Particle Swarm Optimization With Elite Aware Local Search
+Author(s): Jianfei Yang
+(2) Paper ID: ICGEC-2025-18		
+Paper Title: A Deep Learning-Based Study on the Classification and Recognition of Stitching Techniques in Jincang Embroidery
+Author(s): Zining Lan;Lufei Yang
+(3) Paper ID: ICGEC-2025-22		
+Paper Title: Estimation of Forest stock volume based on the PCA-GA-ExtraTrees model
+Author(s): Jianjin Hu
+(4) Paper ID: ICGEC-2025-14		
+Paper Title: Implementation of Adjustable Speed Control based BLDC Motor for Vacuum Cleaner Application
+Author(s): Lingda Chi
+(5) Paper ID: ICGEC-2025-26		
+Paper Title:An Enhanced Black-Winged Kite Algorithm and Its Application in the Capacitated Vehicle Routing Problem
+Author(s):Changqi Xu
+(6) Paper ID: ICGEC-2025-64-1		
+Paper Title: Top-View Vision System for Individual Cow Identification in Milking Parlors
+Author(s): Aung Si Thu Moe
+
+
+
+Session A02: 
+Date: December 18, 2025 (Thursday)
+Time: 15:30-17:15
+Room: 720 Conference Room,Zhengde Building,Yango University
+Session Chair: Prof. Zhenyu Meng, Fujian University of Technology,ChinaCo-chair: Min Liu, Yango University, China
+(1) Paper ID: ICGEC-2025-28		
+Paper Title: An adaptive-threshold warm-start improvement for the L-SHADE method for numerical optimization and analysis
+Author(s): Yinghao Sui
+(2) Paper ID: ICGEC-2025-30		
+Paper Title:An excellent parallel dragonfly algorithm with compact strategy for numerical optimization
+Author(s): Shijun Sun
+(3) Paper ID: ICGEC-2025-31		
+Paper Title: RLMSROA: A Reinforcement Learning Driven Multi-Subpopulation Rafflesia Optimization Algorithm
+Author(s): Jiawei Sun
+(4) Paper ID: ICGEC-2025-55		
+Paper Title: Intelligent Agent Framework for Automatic Error Detection and Correction in Large-Scale Multimodal Documents
+Author(s): Chong Shen
+(5) Paper ID: ICGEC-2025-32		
+Paper Title: A Hybrid Meta-Heuristic for Multi-Objective Robot Path Planning in Complex Environments
+Author(s): Shujuan Zhu锛沍hengjia Lu锛沍hengxiang Pan
+(6) Paper ID: ICGEC-2025-66		
+Paper Title: Iris image segmentation method based on dilated convolution and feature fusion
+Author(s): Xiangqi Kong
+(7) Paper ID: ICGEC-2025-67		
+Paper Title: Unlocking Value through Innovation: How Big DataCapabilities Enhance MSME Performance viaIncremental and Radical Business Model Innovation
+Author(s): Fei Wan
+
+Session A03: 
+Date: December 19, 2025 (Friday)
+Time: 09:00-10:15
+Room: 720 Conference Room,Zhengde Building,Yango University
+Session Chair: Prof.Xingsi Xue, Fujian University of Technology,China Co-chair: Hanhui Wu, Yango University, China
+(1) Paper ID: ICGEC-2025-49		
+Paper Title:A Multi-Strategy Metaheuristic for Optimizing Wireless Sensor Network Deployment
+Author(s):Trong-The Nguyen
+(2) Paper ID: ICGEC-2025-48		
+Paper Title:  Research on Memory-Coherent Zero-Copy SG-DM Technology Based on the ZYNQ Platform Operating SystemA
+Author(s): Guangxiong Wang
+(3) Paper ID: ICGEC-2025-39		
+Paper Title: Enhancing Learning Outcomes Through AI-Agent-Supported Student Assessment
+Author(s):Bixian Zhang
+(4) Paper ID: ICGEC-2025-41		
+Paper Title: Efficacy Analysis of Huanglian Wendan Decoction Combined with Psychological Intervention in the Treatment of Post-Stroke Depression
+Author(s): Yang Li
+(5) Paper ID: ICGEC-2025-37		
+Paper Title: Market Response and Optimization Strategies for Smart Bands Among Chinese University Students: An Empirical Study Based on BERTopic-Driven Review Topic Clustering
+Author(s): Yuanfei Mei
+
+
+
+
+
+Session A04: 
+Date: December 19, 2025 (Friday)
+Time: 10:30-12:00
+Room: 720 Conference Room,Zhengde Building,Yango University
+Session Chair: Prof.Xingsi Xue, Fujian University of Technology,China Co-chair: Jianjin Hu, Yango University, China
+(1) Paper ID: ICGEC-2025-44		
+Paper Title: Quantitative and Reinforcement Methods for Satellite Remote Sensing Object Detection Algorithms
+Author(s):Yiqian Huang
+(2) Paper ID: ICGEC-2025-38		
+Paper Title:Research on RGB-D Image Instance Segmentation Method Based on Graph Neural Network
+Author(s): Jiangliang Yuan
+(3) Paper ID: ICGEC-2025-50		
+Paper Title: Promoting Acceptance of Elderly Care Service platform by Integrating SERVQUAL and Satisfaction, Shanghai Community-support based Community Elder Care as an example
+Author(s): Su-Tzu Hsieh
+(4) Paper ID: ICGEC-2025-56		
+Paper Title:A Novel Path-Planning Method for Unmanned Aerial Vehicles Based on a Reinforcement Evolutionary Algorithm
+Author(s): Gaoyuan Liu
+(5) Paper ID: ICGEC-2025-36		
+Paper Title: Beyond Plain RF: SSA-BP Feature Gating for Clutch Failure Detection
+Author(s):Linlan Xiao
+(6) Paper ID: ICGEC-2025-65		
+Paper Title: Markovian Digital Twins for Precision Healthcare:A Conceptual Framework
+Author(s): Thi Thi Zin
+(7) Paper ID: ICGEC-2025-69		
+Paper Title:An Oracle-Assisted Blockchain Framework for Efficient Searchable Encrypted Data Sharing 
+Author(s): Ge Feng
+
+Session A05: 
+Date: December 19, 2025 (Friday)
+Time: 14:00-15:30
+Room: 720 Conference Room,Zhengde Building,Yango University
+Session Chair: Prof.Xiaoyu Ke, Yango University, ChinaCo-chair: Huiying Wu, Yango University, China
+(1) Paper ID: ICGEC-2025-29
+Paper Title: Lithium-Ion Battery SOC Optimized Estimation Via Improved Genetic Algorithm-Assisted BP Neural Network
+Author(s): Jinghua Peng
+(2) Paper ID: ICGEC-2025-33
+Paper Title: NCP-YOLOv11: A Dual Evolutionary Optimization-Driven Model for Small Target Detection in Remote Sensing Images
+Author(s): Meiyan Lin
+(3) Paper ID: ICGEC-2025-34
+Paper Title: Bilingual LLM-Powered Smart Assistant for Foreign-Related Legal Research
+Author(s):Chuntao Du
+(4) Paper ID: ICGEC-2025-35-1
+Paper Title:AI drives the innovation of undergraduate vocational education courses: an innovative practice with &quot;Web Technology Foundation&quot; as an example
+Author(s): Xiaminna
+(5) Paper ID: ICGEC-2025-15
+Paper Title锛欰n Optimized Minimum Dominating Set Algorithm for Cluster Head Selection in Load-Balanced Wireless Sensor Networks
+Author(s):Xiuyuan Hu
+(6) Paper ID: ICGEC-2025-63
+Paper Title锛?/w:t>Artificial Intelligence in Cognitive Radio: An DL-ML Fusion for Spectrum Sensing
+Author(s): Md. Tofail Ahmed
+
+
+
+
+Session A06: 
+Date: December 19, 2025 (Friday)
+Time: 15:45-17:15
+Room:720 Conference Room,Zhengde Building,Yango University
+Session Chair: Prof. Xiaoyu Ke, Yango University, ChinaCo-chair: ZhiCheng Lai, Yango University, China
+(1) Paper ID: ICGEC-2025-16		
+Paper Title: Intelligent Spectrum Sharing in 5G with Cognitive Radio
+Author(s): Lingjie Lai
+(2) Paper ID: ICGEC-2025-42		
+Paper Title:Alzheimer&apos;s Disease: A Computational Biology Study on Expression Dynamics and Cooperative Regulation of Key SNARE Complex Genes
+Author(s): Chaoyang Pang
+(3) Paper ID: ICGEC-2025-46		
+Paper Title: Design of A Reinforcement Learning Method Based on k3s in Spaceborne Environments.
+Author(s): Yanke Xu
+(4) Paper ID: ICGEC-2025-47		
+Paper Title: Nonconvex Image Reconstruction with Deep Implicit Regularization
+Author(s): Yang Zheng
+(5) Paper ID: ICGEC-2025-35-2
+Paper Title:Big Data-driven battery capacity refinementforelectric vehicles:A machine learning-basedmulti-feature collaborative framework
+Author(s): Qiue Cai
+(6) Paper ID: ICGEC-2025-70  
+Paper Title: An Enhanced DV-Hop Localization Method for Power Grid Safety Inspection Applications
+Author(s):Weixiang Zhang
+
+
+
+
+
+
+                  
+Session B01: 
+Date: December 22, 2025 (Monday)
+Time: 14:00-15:30
+Session Chair: Prof. Yanling Shao
+(1) Paper ID: ICGEC-2025-01
+Paper Title: SM2 Database Encrypted Storage Scheme Based on Intrusion Tolerance
+Author(s):Danyang Wang
+(2) Paper ID: ICGEC-2025-02
+Paper Title: Masking the Words with Discriminator for Non-Autoregressive Machine Translation
+Author(s):Dongbai Li; Shuheng Wang
+(3) Paper ID: ICGEC-2025-04
+Paper Title: 鈥婣 Data-Driven Framework for Intelligent Carbon Emission Regulation Integrating Machine Learning with an Extended Kaya IdentityAuthor(s): Hu Man; Hu Chenyao; Wang Weihui; Yang Haoyu
+(4) Paper ID: ICGEC-2025-06
+Paper Title: Resource allocation strategy for maximizing energy  efficiency of hybrid energy Harvesting MEC systems  assisted by relay UAVs
+Author(s): xinya xu; hongyun Li; yiwen Xu
+
+
+
+
+Session B02: 
+Date: December 22, 2025 (Monday)
+Time: 14:45-17:15
+Session Chair: Prof. Zheng Zhang
+(1) Paper ID: ICGEC-2025-08
+Paper Title: Structure of Autocorrelation in Fractional Brownian Motion
+Author(s): Henggang Ren; Xiaorong Zhu
+(2) Paper ID: ICGEC-2025-09
+Paper Title: Automatic Segmentation and Recognition Technology of Oracle Bone Inscription Images Based on Deep Learning
+Author(s): Haoyue Xu; Tong Niu; Yihao Ren; Jianing Zhang; Zizhong Shi
+(3) Paper ID: ICGEC-2025-12
+Paper Title: Construction and Research on the Decision-Making Model for Electronic Product Production Processes Under Multi-Objective Constraints
+Author(s): Hongyun Li; xinya  Xu; pengyu Li
+(4) Paper ID: ICGEC-2025-13
+Paper Title: Low-Light Image Enhancement with Lightweight Illumination Estimation and Multi-Scale Synchronization
+Author(s): Hao Tian; Qingshan Feng; Mina Hou
+(5) Paper ID: ICGEC-2025-19
+Paper Title: Research on the Application Pathways of Big Data Technology in Medical Insurance Auditing
+Author(s): Jia Wen
+
+
+
+Session B03: 
+Date: December 23, 2025 (Tuesday)
+Time: 09:00-10:30
+Session Chair: Dr. Pei Hu
+(1) Paper ID: ICGEC-2025-20
+Paper Title: Real-time Forest Fire Detection Using &quot;Fire-YOLO&quot; from the Perspective of Marxist Ecological View
+Author(s): Yuan ZHANG; Zhen SUN; Ge OU
+(2) Paper ID: ICGEC-2025-21
+Paper Title: A Deep Reinforcement Learning-Based Approach for HVAC Demand Response Control
+Author(s): Yang Li; Yingan Wei; Hao Qin 
+(3) Paper ID: ICGEC-2025-23
+Paper Title: Research on Interactive Serious Game Design Based on Algorithm Bias
+Author(s): Minqi Dun
+(4) Paper ID: ICGEC-2025-24
+Paper Title: Hierarchical Search Differential Evolution Algorithm for Relay Satellite Mission Scheduling
+Author(s): Bingyang Wang; Xinghao Wang; Yiming Zhang; Fangxin Lu; ErBao Xu; Yufeng Wang
+(5) Paper ID: ICGEC-2025-25
+Paper Title: A Novel Dual-Population Co-evolution Hybrid Differential Evolution Algorithm
+Author(s): ke chen; Chunxu Chen; Chihao Zhang
+
+
+
+
+Session B04: 
+Date: December 23, 2025 (Tuesday) 
+Time: 10:45-12:00
+Session Chair: Dr. Pei Hu
+(1) Paper ID: ICGEC-2025-43
+Paper Title: A Big Data and AI Hands-on Platform for Smart Logistics Based on Cloud-Edge Collaborative Architecture
+Author(s): Yanling Shao
+(2) Paper ID: ICGEC-2025-53
+Paper Title: VGG+: A Lightweight and Efficient CNN for Tea Plant Pest and Disease Identification
+Author(s): Wanting Zhang, Xuan Liu, Zhihao Yan, Jing Zhang, and Wei Liu
+(3) Paper ID: ICGEC-2025-54
+Paper Title: Multi-Component Data Enhancement Strategy for Improving Tumor Prediction in TMO-Net
+Author(s): Wei Liu, Xuan Liu, Xiangzhi Wang, Zhihao Yan, Yanpei Wang, Ya Qiu, Rui Zhang, and Tongnan Yin
+(4) Paper ID: ICGEC-2025-61
+Paper Title: Game-Theoretic Assisted Multi-task Offloading for Logistics Algorithms in End-Edge-Cloud Collaborative Computing
+Author(s): Pingping Shan, Yanling Shao
+(5) Paper ID: ICGEC-2025-64
+Paper Title: Transmission Line Target Recognition and Ranging Based on Point Cloud Segmentation-Clutter Suppression-Kalman Filter
+Author(s): Yanbin Li, Ji Wang, Dong Wang, Hui Li锛?/w:t>Yixuan Ding, Songtao Ding, Zhenquan Liu, Yuanfang Liu
+(6) Paper ID: ICGEC-2025-68
+Paper Title: Adaptive Fraud Detection Model For Graph Neighborhood Information Enhancement
+Author(s): Peihan Yang, Zhongzhi Wen, Zheng Zhang
+
+
+
+
+
+
+
+Part6:Conference Venue
+Conference Venue: Concert Hall, Zhengde Building,Yango University
+Address: No99 Delong Road,Mawei District,Fuzhou,Fujian,China
+Google Map Link:  HYPERLINK &quot;https://maps.app.goo.gl/wA5nbSJEjDiphwAQA&quot; https://maps.app.goo.gl/wA5nbSJEjDiphwAQA
+
+
+
+
+
+Welcome Reception: Fuzhou Sanjiangkou International HotelAddress: Room , floor,Tianbao Building, No.162-1,Jiangbin East Avenue,Mawei District,Fuzhou,Fujian,ChinaGoogle Map Link:HYPERLINK https://www.google.com/maps/place/Fuzhou+Sanjiangkou+International+Hotel/ normalLink \tdkey twsyu5 \tdfe -10 \tdfn https%3A//www.google.com/maps/place/Fuzhou+Sanjiangkou+International+Hotel/ \tdfu https://www.google.com/maps/place/Fuzhou+Sanjiangkou+International+Hotel/ \tdlt inline https://www.google.com/maps/place/Fuzhou+Sanjiangkou+International+Hotel/
+
+
+
+                           
+Important Tips for Participants: After the conclusion of the first day&apos;s sessions, the conference secretariat will arrange a shuttle bus to take the participants to Sanjiangkou International Hotel for the Banquet.If you wish to take the shuttle, please gather and wait in front of Zhengde Building, of Yango University.
+
+Part7:Yango University Introduction
+Yango University was established in 2001 under the auspices of Fuzhou University, a key institution in China&apos;s &quot;Project 211&quot; national initiative. In 2015, the Ministry of Education approved its transition to a private undergraduate institution, followed in 2017 by the Fujian Provincial Department of Education granting it the status of a candidate unit for master&apos;s degree cultivation. A series of milestones mark its rapid development: it was designated as a candidate for master&apos;s degree conferral by the Fujian Provincial Department of Education in 2017, selected for Fujian&apos;s First-Class Applied-Oriented University Development Program in 2022, and approved as a cultivating institution for master&apos;s degree conferral in Fujian Province in 2025. 
+聽
+The university operates on a dual-campus model. The main campus is situated in Mawei, Fuzhou, the birthplace of modern technology, education and industry in China, while the Binhai Campus is located in Changle, within the dynamic Fuzhou New Area and the core zone of the Maritime Silk Road. Currently, the university enrolls over 19,000 full-time students.
+聽
+ For over two decades, Yango University has embraced the motto &quot;Resilient, Sincere, and Ever-Progressing,&quot; and is committed to cultivating well-rounded, high-quality applied talents. These individuals are characterized by solid academic foundations, strong practical skills, a sense of social responsibility, and an innovative, entrepreneurial spirit. Aligned with the industrial development goals of Fujian Province, the university has evolved into a first-class applied institution, with engineering as its core focus while promoting coordinated development across multiple disciplines. 
+聽
+The university comprises 10 secondary colleges that offer 40 undergraduate programs spanning 8 major fields, including Engineering, Science, Management, Literature, Law, and Arts. Three majors, including Computer Science and Technology, Electronic Information Engineering, and E-Commerce, have been selected as national first-class undergraduate major construction sites. The university has five majors designated as provincial first-class specialty construction programs: Finance, Law, Fine Arts, Civil Engineering, and Business Administration. The university also offers three National and 41 Provincial First-Class Undergraduate Courses, five Provincial-Level Demonstration Projects in Values Education, and has two applied disciplines designated as provincial development projects, with two others as cultivation projects. 
+聽
+The university implements the &quot;Hundred Doctoral Talents&quot; initiative, successfully recruiting 9 national-level talents, including National Distinguished Experts, a Foreign Academician from Russia, recipients of State Council Special Allowance, members of the MOE Teaching Guidance Committee, and MOE New Century Excellent Talents. Over 30 provincial-level talents have also joined the faculty, including those recognized through Fujian&apos;s high-level talent categories, Minjiang Education Leaders, and scholars from Fujian&apos;s &quot;Hundred Talent Program&quot; for Taiwanese academics. The university currently employs over 1,100 faculty and staff members. Among them, 83.39% hold master&apos;s or doctoral degrees, and nearly 50% are &quot;Dual-Qualified&quot; teachers who integrate professional industry experience into their teaching. 
+聽
+Yango University continues to deepen its educational and teaching reforms, earning five Fujian Provincial Teaching Achievement Awards, including one Special Prize, one First Prize, and three Second Prizes. The university has undertaken 52 Fujian Provincial Education and Teaching Reform Research Projects, four New Engineering and New Liberal Arts Research and Reform Practice Projects, and three Fujian &quot;14th Five-Year Plan&quot; Higher Education Textbook Development Programs.
+聽
+ Recognized nationally as a distinctive and exemplary institution for deepening innovation and entrepreneurship education reforms, the university has established two Provincial Modern Industry Colleges, two Provincial Teaching Teams, and 65 industry-academia collaboration projects under the Ministry of Education&apos;s Cooperative Education Initiative. By strengthening partnerships with local governments, Yango University has signed strategic cooperation agreements with the Mawei District on maritime culture, the Taijiang District on low-altitude economy talent development, and the Fuzhou New Area on emerging digital industries, providing students with high-quality educational resources and facilities. 
+聽
+As a qualified host institution for the National Natural Science Foundation of China, the university has secured two National Natural Science Foundation projects and 11 National Social Science Foundation projects. It is home to several key research platforms, including the Fujian Provincial Key Laboratory of Spatial Information Perception and Intelligent Processing, the Digital Economy Research Center鈥攁 provincial key philosophy and social sciences research base鈥攁nd the Provincial-Level University Scientific and Technological Innovation Team in Intelligent Information and Perception Technology. 
+聽
+The university&apos;s research excellence has been recognized through multiple awards, such as the Fujian Provincial Science and Technology Progress Third Prize, the China Highway and Transportation Society Science and Technology Progress Second Prize, two First Prizes from the China Association of Work Safety, the China Metrology and Testing Society Science and Technology Progress First Prize, the Hunan Provincial Science and Technology Progress First Prize, and the Fujian Provincial Outstanding Social Science Research Achievement Third Prize. 
+聽
+Faculty members at Yango University have earned significant recognition in competitive teaching awards. In the past two consecutive years, they have received two second-place prizes in the National University Teaching Innovation Competition. Additionally, they have been honored with two first prizes, one second prize, and six third prizes in the Fujian Provincial University Teaching Innovation Competition, along with two first prizes, eight second prizes, and four third prizes in the Fujian Provincial Young Faculty Teaching Competition. 
+聽
+Students at Yango University have consistently excelled in various high-level disciplinary and innovation contests, securing over 1,000 awards at national and provincial levels. Their accomplishments include national silver and bronze awards in the China International College Students&apos; Innovation Competition as well as multiple top awards in prestigious events such as the &quot;Challenge Cup&quot; academic and entrepreneurship competitions, the China National Undergraduate &quot;Innovation, Creativity and Entrepreneurship&quot; Challenge, and the National Structure Design Contest. Students have also earned first prizes in other major national events including the China Robotics and Artificial Intelligence Competition, the &quot;Blue Bridge Cup&quot; software contest, and the National Digital Art Design Competition, demonstrating solid professional knowledge and strong innovative capabilities.
+聽
+ Yango University remains dedicated to its core mission of cultivating well-rounded, high-quality applied talents, with remarkable outcomes in both education and teaching. Since its founding, the university has graduated over 46,000 professionals, who continue to make meaningful contributions across various fields including academic research, public service, industrial innovation, and rural revitalization. 
+聽
+The university places strong emphasis on moral education and student development. It has been recognized as the Provincial Advanced Grass-Roots Party Organization鈥攖he only private institution in Fujian to receive this honor鈥攁nd has been selected as a pilot institution for the &quot;One-Stop&quot; Student Community initiative, a program designed to provide integrated support services and create a seamless living-and-learning experience for students. Furthermore, it hosts one &quot;Double-Leader&quot; Faculty Party Branch Secretary Studio and one Ministry of Education Ideological and Political Education Excellence Project. According to Ministry of Education statistics, the university is ranked 8th among private institutions nationwide and 1st among private universities in Fujian in terms of ideological and political education effectiveness. Additional honors include the National May Fourth Red Flag Youth League Committee, the National Vibrant Youth League Branch, and the National Outstanding Unit for Summer Social Practice by Students. 
+聽
+With an eye to the future and embracing the vision of &quot;Forging a Legacy of a Century, Educating Pioneers of a New Century,&quot; Yango University is dedicated to aligning with national strategies and fuelling regional growth. The university is firmly on the path to establishing itself as a top-tier, application-oriented university renowned for its high-quality education.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
